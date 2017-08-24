@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>elasticsearch + logstash + kibana3 | 我的地盘</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="目的搭建该平台的目的就是为了运维、研发很方便的进行日志的查询 简介 logstsh    收集日志转到任意地方 inputs &amp;gt;&amp;gt; codecs &amp;gt;&amp;gt; filters &amp;gt;&amp;gt; outputs 支持的插件（很多 官网） ruby   ElasticSearch     基于lucene的开源搜索引擎 实时、分布式、高可用、文档型、restful api java">
+<meta name="keywords" content="log">
+<meta property="og:type" content="article">
+<meta property="og:title" content="elasticsearch + logstash + kibana3">
+<meta property="og:url" content="http://jamesban.github.io/2014/11/27/日志平台/index.html">
+<meta property="og:site_name" content="我的地盘">
+<meta property="og:description" content="目的搭建该平台的目的就是为了运维、研发很方便的进行日志的查询 简介 logstsh    收集日志转到任意地方 inputs &amp;gt;&amp;gt; codecs &amp;gt;&amp;gt; filters &amp;gt;&amp;gt; outputs 支持的插件（很多 官网） ruby   ElasticSearch     基于lucene的开源搜索引擎 实时、分布式、高可用、文档型、restful api java">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://i2.tietuku.com/ee102b9bc74b5a7f.jpg">
+<meta property="og:image" content="http://i2.tietuku.com/57191356d5bde5a5.jpg">
+<meta property="og:image" content="http://i2.tietuku.com/28241ba7923d65b8.jpg">
+<meta property="og:image" content="http://static.oschina.net/uploads/space/2013/1128/134318_n6Bp_123777.jpg">
+<meta property="og:image" content="http://i2.tietuku.com/2bed88a0e407f62d.png">
+<meta property="og:image" content="http://i2.tietuku.com/fa89dc8f73e5c621.png">
+<meta property="og:image" content="http://i2.tietuku.com/cdeed3f95f3c62b5.png">
+<meta property="og:updated_time" content="2017-08-24T13:47:13.557Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="elasticsearch + logstash + kibana3">
+<meta name="twitter:description" content="目的搭建该平台的目的就是为了运维、研发很方便的进行日志的查询 简介 logstsh    收集日志转到任意地方 inputs &amp;gt;&amp;gt; codecs &amp;gt;&amp;gt; filters &amp;gt;&amp;gt; outputs 支持的插件（很多 官网） ruby   ElasticSearch     基于lucene的开源搜索引擎 实时、分布式、高可用、文档型、restful api java">
+<meta name="twitter:image" content="http://i2.tietuku.com/ee102b9bc74b5a7f.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="我的地盘" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">我的地盘</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">phper</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://jamesban.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-日志平台" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/27/日志平台/" class="article-date">
+  <time datetime="2014-11-27T15:27:06.000Z" itemprop="datePublished">11月 27 2014</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      elasticsearch + logstash + kibana3
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>搭建该平台的目的就是为了运维、研发很方便的进行日志的查询</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ol>
+<li><p>logstsh</p>
+<p> <img src="http://i2.tietuku.com/ee102b9bc74b5a7f.jpg" alt=""></p>
+<ul>
+<li>收集日志转到任意地方</li>
+<li>inputs &gt;&gt; codecs &gt;&gt; filters &gt;&gt; outputs</li>
+<li>支持的插件（很多 <a href="http://logstash.net/docs/1.4.2/" target="_blank" rel="external">官网</a>）</li>
+<li>ruby</li>
+</ul>
+</li>
+<li><p>ElasticSearch </p>
+<p> <img src="http://i2.tietuku.com/57191356d5bde5a5.jpg" alt=""></p>
+<ul>
+<li>基于lucene的开源搜索引擎</li>
+<li>实时、分布式、高可用、文档型、restful api</li>
+<li>java</li>
+</ul>
+</li>
+<li><p>kibana</p>
+<p> <img src="http://i2.tietuku.com/28241ba7923d65b8.jpg" alt=""></p>
+<ul>
+<li>kibana是一个功能强大的elasticsearch数据显示客户端</li>
+<li>纯html+js客户端，可以很方便的部署到Apache、Nginx等Http服务器</li>
+<li><a href="https://trash.ulyaoth.net/trash/png/logstash/geoip/logstashgeoip.png" target="_blank" rel="external">酷图</a>    </li>
+</ul>
+</li>
+</ol>
+<h2 id="架构图"><a href="#架构图" class="headerlink" title="架构图"></a>架构图</h2><p><img src="http://static.oschina.net/uploads/space/2013/1128/134318_n6Bp_123777.jpg" alt=""></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>依赖jdk<br>安装过程参考 </p>
+<ul>
+<li><a href="[http://enable.blog.51cto.com/747951/1049411](http://enable.blog.51cto.com/747951/1049411">linux</a>)</li>
+<li><a href="https://community.ulyaoth.net/threads/how-to-install-logstash-on-a-windows-server-with-kibana-in-iis.17/" target="_blank" rel="external">windows</a></li>
+</ul>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p>标注输入</p>
+<pre><code>input {
+  stdin{}
+}
+
+filter {
+  grok {
+    match =&gt; [ &quot;message&quot;, &quot;(?&lt;ttt&gt;\d{1,3})&quot; ]
+  }
+}
+
+output{
+ stdout{
+   codec =&gt; rubydebug
+ }
+}
+</code></pre><p>输入结果</p>
+<p><img src="http://i2.tietuku.com/2bed88a0e407f62d.png" alt=""></p>
+<p>nginx 访问日志</p>
+<p>nginx 配置</p>
+<pre><code>http {
+        log_format logstash_json &apos;{ &quot;@timestamp&quot;: &quot;$time_iso8601&quot;, &apos;
+                                 &apos;&quot;@fields&quot;: { &apos;
+                                 &apos;&quot;remote_addr&quot;: &quot;$remote_addr&quot;, &apos;
+                                 &apos;&quot;remote_user&quot;: &quot;$remote_user&quot;, &apos;
+                                 &apos;&quot;body_bytes_sent&quot;: &quot;$body_bytes_sent&quot;, &apos;
+                                 &apos;&quot;request_time&quot;: &quot;$request_time&quot;, &apos;
+                                 &apos;&quot;status&quot;: &quot;$status&quot;, &apos;
+                                 &apos;&quot;request&quot;: &quot;$request&quot;, &apos;
+                                 &apos;&quot;request_method&quot;: &quot;$request_method&quot;, &apos;
+                                 &apos;&quot;http_referrer&quot;: &quot;$http_referer&quot;, &apos;
+                                 &apos;&quot;http_user_agent&quot;: &quot;$http_user_agent&quot; } }&apos;;
+}
+
+server {
+    access_log /var/log/nginx/xiaoma.log logstash_json;
+}
+</code></pre><p> nginx-access-json.conf</p>
+<pre><code>input{
+  file {
+     path =&gt; &quot;/usr/local/logstash/conf/xiaoma.log&quot;
+     type =&gt; &quot;nginx_json&quot;
+     start_position =&gt; &quot;beginning&quot;
+     format =&gt; &quot;json_event&quot;
+     sincedb_path =&gt; &quot;/dev/null&quot;
+  }
+}
+
+filter {
+  if [type] == &quot;nginx_json&quot; {
+     geoip {
+       source =&gt; &quot;remote_addr&quot;
+     }
+  }
+}
+output{
+   stdout{
+       codec =&gt; rubydebug
+   }
+
+   elasticsearch {
+        host =&gt; &quot;127.0.0.1&quot;
+   }
+}
+</code></pre><p>输入结果</p>
+<p><img src="http://i2.tietuku.com/fa89dc8f73e5c621.png" alt=""></p>
+<p>mysql慢查询</p>
+<pre><code>input {
+  file {
+    type =&gt; &quot;mysql-slow&quot;
+    path =&gt; &quot;/usr/local/src/mysql-slow.log&quot;
+    start_position =&gt; &quot;beginning&quot;
+  }
+}
+
+filter {
+      grep {
+        match =&gt; [ &quot;@message&quot;, &quot;^# Time: &quot; ]
+        negate =&gt; true
+      }
+
+      grok {
+        singles =&gt; true
+        pattern =&gt; [
+          &quot;^# User@Host: %{USER:user}\[[^\]]+\] @ %{HOST:host} \[%{IP:ip}?]&quot;,
+          &quot;^# Query_time: %{NUMBER:duration:float} \s*Lock_time: %{NUMBER:lock_wait:float} \s*Rows_sent: %{NUMBER:results:int} \s*Rows_examined: %{NUMBER:scanned:int}&quot;,
+          &quot;^SET timestamp=%{NUMBER:timestamp};&quot;
+        ]
+      }
+
+      multiline {
+        pattern =&gt; &quot;^# User@Host: &quot;
+        negate =&gt; true
+        what =&gt; previous
+      }
+
+      date {
+        match =&gt; [&quot;timestamp&quot;, UNIX]
+      }
+
+      mutate {
+        remove =&gt; &quot;timestamp&quot;
+      }
+    }
+
+output {
+  stdout {
+    codec =&gt; rubydebug
+  }
+
+  elasticsearch {
+     host =&gt; &quot;168.192.122.58&quot;
+     protocol =&gt; &quot;http&quot;
+     workers =&gt; 5
+  }
+}
+</code></pre><p>输入结果</p>
+<p><img src="http://i2.tietuku.com/cdeed3f95f3c62b5.png" alt=""></p>
+<h2 id="学习资料"><a href="#学习资料" class="headerlink" title="学习资料"></a>学习资料</h2><ul>
+<li><a href="https://github.com/chenryn/kibana" target="_blank" rel="external">饶琛琳Github</a></li>
+<li><a href="http://chenlinux.com/" target="_blank" rel="external">饶琛琳Blog</a></li>
+<li><a href="http://chenryn.gitbooks.io/kibana-guide-cn/content/index.html" target="_blank" rel="external">Kibana 中文指南</a></li>
+<li><a href="http://fuxiaopang.gitbooks.io/learnelasticsearch/" target="_blank" rel="external">Elasticsearch 权威指南</a></li>
+<li><a href="https://grokdebug.herokuapp.com/" target="_blank" rel="external">logstash-grok-debug</a></li>
+<li><a href="https://github.com/shuge/man/tree/master/srv/log" target="_blank" rel="external">logstash常用配置文件</a></li>
+<li><a href="https://github.com/chenryn/logstash-best-practice-cn" target="_blank" rel="external">Logstash 最佳实践</a></li>
+<li>google</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jamesban.github.io/2014/11/27/日志平台/" data-id="cj6qkiuw500155gu0mdu9tspe" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/log/">log</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/11/27/检查文档是否存在/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          检查文档是否存在
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/api/">api</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/closures/">closures</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/curl/">curl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/date/">date</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ffmpeg/">ffmpeg</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/google/">google</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/log/">log</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/memcached/">memcached</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mod-zip/">mod_zip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nignx/">nignx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/photo/">photo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pyton/">pyton</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sphinx/">sphinx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swoole/">swoole</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yii/">yii</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/骑行/">骑行</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/closures/" style="font-size: 10px;">closures</a> <a href="/tags/curl/" style="font-size: 10px;">curl</a> <a href="/tags/date/" style="font-size: 10px;">date</a> <a href="/tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="/tags/google/" style="font-size: 10px;">google</a> <a href="/tags/linux/" style="font-size: 13.33px;">linux</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/memcached/" style="font-size: 10px;">memcached</a> <a href="/tags/mod-zip/" style="font-size: 10px;">mod_zip</a> <a href="/tags/mongodb/" style="font-size: 16.67px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nignx/" style="font-size: 10px;">nignx</a> <a href="/tags/photo/" style="font-size: 10px;">photo</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/pyton/" style="font-size: 10px;">pyton</a> <a href="/tags/sphinx/" style="font-size: 10px;">sphinx</a> <a href="/tags/swoole/" style="font-size: 10px;">swoole</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/yii/" style="font-size: 10px;">yii</a> <a href="/tags/骑行/" style="font-size: 10px;">骑行</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/08/17/修复yum/">修复yum</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/13/西湖/">西湖</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/12/python文字发音/">python文字发音</a>
+          </li>
+        
+          <li>
+            <a href="/2015/03/23/mysql多值查询/">mysql多值查询</a>
+          </li>
+        
+          <li>
+            <a href="/2015/03/11/php的匿名函数/">php的匿名函数</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 jamesBan<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

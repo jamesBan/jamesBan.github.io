@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Tag: mongodb | 我的地盘</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="phper&apos;s blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="我的地盘">
+<meta property="og:url" content="http://jamesban.github.io/tags/mongodb/index.html">
+<meta property="og:site_name" content="我的地盘">
+<meta property="og:description" content="phper&apos;s blog">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="我的地盘">
+<meta name="twitter:description" content="phper&apos;s blog">
+  
+    <link rel="alternative" href="/atom.xml" title="我的地盘" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">我的地盘</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">phper</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://jamesban.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-mongodb聚合查询" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/17/mongodb聚合查询/" class="article-date">
+  <time datetime="2014-12-17T11:21:11.000Z" itemprop="datePublished">12月 17 2014</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/17/mongodb聚合查询/">mongodb聚合查询</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="map-reduce"><a href="#map-reduce" class="headerlink" title="map-reduce"></a>map-reduce</h2><h2 id="aggregate"><a href="#aggregate" class="headerlink" title="aggregate"></a>aggregate</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">todo</div></pre></td></tr></table></figure>
+<p>参考</p>
+<ul>
+<li><a href="http://www.cnblogs.com/TextEditor/archive/2013/01/20/2857999.html" target="_blank" rel="external">[教程]MongoDB 从入门到进阶 （aggregation数据库状态）</a></li>
+<li><a href="http://www.w3cschool.cc/mongodb/mongodb-aggregate.html" target="_blank" rel="external">MongoDB 聚合</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jamesban.github.io/2014/12/17/mongodb聚合查询/" data-id="cj6qkiuv8000e5gu0hxaa6rmv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongodb/">mongodb</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-mongodb数组查询" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/17/mongodb数组查询/" class="article-date">
+  <time datetime="2014-12-17T11:06:15.000Z" itemprop="datePublished">12月 17 2014</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/17/mongodb数组查询/">mongodb数组查询</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>插入测试数据</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span>db.food.insert(&#123;"_id":1, "fruit":["apple","banana","peach"]&#125;)</div><div class="line"><span class="meta">&gt;</span>db.food.insert(&#123;"_id":2, "fruit":["apple","kumquat","orange"]&#125;)</div><div class="line"><span class="meta">&gt;</span>db.food.insert(&#123;"_id":3, "fruit":["cherry","banana","apple"]&#125;)</div></pre></td></tr></table></figure>
+<ul>
+<li>$all(数组元素必须包含)</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span>db.food.find(&#123;"fruit":&#123;$all:["apple", "banana"]&#125;&#125;) // 返回_id 为1,3的记录</div></pre></td></tr></table></figure>
+<ul>
+<li>$in (数组元素为其中任意一个)</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span>db.food.find(&#123;"fruit":&#123;$in:["apple,", "banana"]&#125;&#125;) // 1,2,3</div></pre></td></tr></table></figure>
+<p>单个$in 可以省略$in操作符 一下两条查询结果相同<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;db.food.find(&#123;&quot;fruit&quot;:&quot;apple&quot;&#125;); //1, 2,3</div><div class="line">&gt;db.food.find(&#123;&quot;fruit&quot;:&#123;$in:[&quot;apple&quot;]&#125;&#125;);//1,2,3</div></pre></td></tr></table></figure></p>
+<ul>
+<li>$size (数组长度)<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span>db.food.find(&#123;"fruit":&#123;$size:3&#125;&#125;) // 1, 2,3</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>也可是使用 $where 来代替<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt;db.food.find(&#123;$where:&quot;this.fruit.length == 3&quot;&#125;); // 1, 2, 3</div></pre></td></tr></table></figure></p>
+<ul>
+<li><p>$slice(对数组进行分片)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt;db.food.find(&#123;&#125;, &#123;&quot;fruit&quot;:&#123;$slice:[1,1]&#125;&#125;) //只返回数组第一个元素</div></pre></td></tr></table></figure>
+</li>
+<li><p>查询第一个元素为apple的记录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span>db.food.find(&#123;"fruit.0": "apple"&#125;);</div><div class="line"><span class="meta">&gt;</span>db.food.find(&#123;$where:"this.fruit[0] == 'apple'"&#125;);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jamesban.github.io/2014/12/17/mongodb数组查询/" data-id="cj6qkiuv200095gu0cgl69zfx" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongodb/">mongodb</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-mongodb注入问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/01/mongodb注入问题/" class="article-date">
+  <time datetime="2014-12-01T12:54:47.000Z" itemprop="datePublished">12月 1 2014</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/01/mongodb注入问题/">mongodb注入攻击</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一直以为注入只存在关系型数据库中，看了这篇<a href="http://drops.wooyun.org/tips/3939" target="_blank" rel="external">文章</a>才知道mongodb也会中招.<br>翻看php手册发现早就发现有这个<a href="http://php.net/manual/zh/mongo.security.php" target="_blank" rel="external">问题</a>，以前看手册一直没注意.</p>
+<p>数组绑定时的注入</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$mongo = <span class="keyword">new</span> mongoclient();</div><div class="line"><span class="comment">//选择数据库</span></div><div class="line">$db = $mongo-&gt;myinfo; </div><div class="line"> <span class="comment">//选择集合</span></div><div class="line">$coll = $db-&gt;test;</div><div class="line"></div><div class="line">$username = $_GET[<span class="string">'username'</span>];</div><div class="line">$password = $_GET[<span class="string">'password'</span>];</div><div class="line">$data = <span class="keyword">array</span>(</div><div class="line">        <span class="string">'username'</span>=&gt;$username,</div><div class="line">        <span class="string">'password'</span>=&gt;$password</div><div class="line">        );</div><div class="line">$data = $coll-&gt;find($data);</div><div class="line">$count = $data-&gt;count();</div><div class="line"><span class="keyword">if</span> ($count&gt;<span class="number">0</span>) &#123;</div><div class="line">    <span class="keyword">foreach</span> ($data <span class="keyword">as</span> $user) &#123;</div><div class="line">        <span class="keyword">echo</span> <span class="string">'username:'</span>.$user[<span class="string">'username'</span>].<span class="string">"&lt;/br&gt;"</span>;</div><div class="line">        <span class="keyword">echo</span> <span class="string">'password:'</span>.$user[<span class="string">'password'</span>].<span class="string">"&lt;/br&gt;"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">else</span>&#123;</div><div class="line">    <span class="keyword">echo</span> <span class="string">'未找到'</span>;</div><div class="line">&#125;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<p>如果传入url为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://127.0.0.1/2.php?username[$ne]=test&amp;password[$ne]=test</div></pre></td></tr></table></figure></p>
+<p>mongodb最终执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.test.find(&#123;username:&#123;&apos;$ne&apos;:&apos;test&apos;&#125;,password:&#123;&apos;$ne&apos;:&apos;test&apos;&#125;&#125;);</div></pre></td></tr></table></figure></p>
+<p>php会把test集合内的所有数据全部便利出来。</p>
+<p>防止注入的方法也很简单, 注意参数的检验.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">...</div><div class="line">$username = $_GET[<span class="string">'username'</span>];</div><div class="line">$password = $_GET[<span class="string">'password'</span>];</div><div class="line"></div><div class="line">$username = is_string($username) ? $username : <span class="string">''</span>;</div><div class="line">$password = is_string($password) ? $password : <span class="string">''</span>;</div><div class="line">...</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<p>接受参数拼接直接以命令行执行的注入可以参考<a href="http://php.net/manual/zh/mongo.security.php" target="_blank" rel="external">php手册</a> 使用MongoCode 进行转椅后再使用.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jamesban.github.io/2014/12/01/mongodb注入问题/" data-id="cj6qkiuv6000c5gu0isd5dg0n" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongodb/">mongodb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-检查文档是否存在" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/27/检查文档是否存在/" class="article-date">
+  <time datetime="2014-11-27T15:30:46.000Z" itemprop="datePublished">11月 27 2014</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/27/检查文档是否存在/">检查文档是否存在</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>&lt;?php
+    $mongo = new MongoClient();
+    $db = $mongo-&gt;dbName;
+    $collection = $db-&gt;collectionName;
+
+    $cursor = $collection-&gt;find(
+        $criteria, 
+        array(&apos;_id&apos; =&gt; 1)
+    )-&gt;limit(1);
+
+    if($coursor-&gt;count() == 0){
+      exit(&apos;not exist&apos;);
+    }
+
+    exit(&apos;exits&apos;);
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jamesban.github.io/2014/11/27/检查文档是否存在/" data-id="cj6qkiuwd001a5gu0l62vkkok" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongodb/">mongodb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/api/">api</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/closures/">closures</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/curl/">curl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/date/">date</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ffmpeg/">ffmpeg</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/google/">google</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/log/">log</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/memcached/">memcached</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mod-zip/">mod_zip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nignx/">nignx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/photo/">photo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pyton/">pyton</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sphinx/">sphinx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swoole/">swoole</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yii/">yii</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/骑行/">骑行</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/closures/" style="font-size: 10px;">closures</a> <a href="/tags/curl/" style="font-size: 10px;">curl</a> <a href="/tags/date/" style="font-size: 10px;">date</a> <a href="/tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="/tags/google/" style="font-size: 10px;">google</a> <a href="/tags/linux/" style="font-size: 13.33px;">linux</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/memcached/" style="font-size: 10px;">memcached</a> <a href="/tags/mod-zip/" style="font-size: 10px;">mod_zip</a> <a href="/tags/mongodb/" style="font-size: 16.67px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nignx/" style="font-size: 10px;">nignx</a> <a href="/tags/photo/" style="font-size: 10px;">photo</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/pyton/" style="font-size: 10px;">pyton</a> <a href="/tags/sphinx/" style="font-size: 10px;">sphinx</a> <a href="/tags/swoole/" style="font-size: 10px;">swoole</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/yii/" style="font-size: 10px;">yii</a> <a href="/tags/骑行/" style="font-size: 10px;">骑行</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/08/17/修复yum/">修复yum</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/13/西湖/">西湖</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/12/python文字发音/">python文字发音</a>
+          </li>
+        
+          <li>
+            <a href="/2015/03/23/mysql多值查询/">mysql多值查询</a>
+          </li>
+        
+          <li>
+            <a href="/2015/03/11/php的匿名函数/">php的匿名函数</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 jamesBan<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

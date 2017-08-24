@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Tag: php | 我的地盘</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="phper&apos;s blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="我的地盘">
+<meta property="og:url" content="http://jamesban.github.io/tags/php/page/2/index.html">
+<meta property="og:site_name" content="我的地盘">
+<meta property="og:description" content="phper&apos;s blog">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="我的地盘">
+<meta name="twitter:description" content="phper&apos;s blog">
+  
+    <link rel="alternative" href="/atom.xml" title="我的地盘" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">我的地盘</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">phper</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://jamesban.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-DateTime类的常见用法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/04/DateTime类的常见用法/" class="article-date">
+  <time datetime="2014-12-04T11:36:11.000Z" itemprop="datePublished">12月 4 2014</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/04/DateTime类的常见用法/">DateTime类的常见用法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>初始化</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//默认为当前时间</span></div><div class="line">$tz = <span class="keyword">new</span> DateTimezone(<span class="string">'Asia/Shanghai'</span>);</div><div class="line"><span class="keyword">echo</span> (<span class="keyword">new</span> DateTime(<span class="string">'now'</span>, $tz))-&gt;format(<span class="string">'Y-m-d H:i:s'</span>); <span class="comment">//2014-12-04 12:04:55</span></div><div class="line">$d = <span class="keyword">new</span> DateTime(<span class="string">'+1 day'</span>, $tz); <span class="comment">//2014-12-05 12:04:55</span></div></pre></td></tr></table></figure>
+<ul>
+<li><p>设置时区</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$d = <span class="keyword">new</span> DateTime(<span class="keyword">null</span>, <span class="keyword">new</span> DateTimezone(<span class="string">'Asia/Shanghai'</span>));</div><div class="line">$d-&gt;setTimezone(<span class="string">'Asia/Shanghai'</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p>设置/获取时间戳</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">echo</span> $d-&gt;getTimestamp();  <span class="comment">//1417664087</span></div><div class="line"><span class="keyword">echo</span> $d-&gt;setTimestamp(<span class="number">1417664087</span>)-&gt;format(<span class="string">'Y-m-d H:i:s'</span>);  <span class="comment">//2014-12-04 11:34:47</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>修改时间</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//明天当前时间 (使用关键字day、week、month year 进行修改)</span></div><div class="line">使用modify</div><div class="line"><span class="keyword">echo</span> $d-&gt;modify(<span class="string">'+1 day'</span>)-&gt;setTime(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>)-&gt;format(<span class="string">'Y-m-d H:i:s'</span>);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>或者使用 sub、add<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">echo</span> $d-&gt;sub(<span class="keyword">new</span> DateInterval(<span class="string">'P1D'</span>))-&gt;format(<span class="string">'Y-m-d H:i:s'</span>);</div><div class="line"><span class="keyword">echo</span> $d-&gt;add(<span class="keyword">new</span> DateInterval(<span class="string">'P1D'</span>))-&gt;format(<span class="string">'Y-m-d H:i:s'</span>);</div></pre></td></tr></table></figure></p>
+<ul>
+<li><p>比较日期大小 </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$t = <span class="keyword">new</span> DateTimezone(<span class="string">'Asia/Shanghai'</span>);</div><div class="line">$d1 = <span class="keyword">new</span> DateTime(<span class="string">'2014-12-01'</span>, $t);</div><div class="line">$d2 = <span class="keyword">new</span> DateTime(<span class="string">'2014-12-02'</span>, $t);</div><div class="line"></div><div class="line"><span class="keyword">echo</span> $d1 &gt; $d2 ? <span class="string">'d1 bigger than d2'</span> : <span class="string">'d1 less than d2'</span>;</div></pre></td></tr></table></figure>
+</li>
+<li><p>获取日期间的差异</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">$diff = $d1-&gt;diff($d2);</div><div class="line"></div><div class="line">print_r($diff);</div><div class="line"></div><div class="line">DateInterval Object</div><div class="line">(</div><div class="line">    [y] =&gt; <span class="number">0</span></div><div class="line">    [m] =&gt; <span class="number">0</span></div><div class="line">    [d] =&gt; <span class="number">1</span></div><div class="line">    [h] =&gt; <span class="number">0</span></div><div class="line">    [i] =&gt; <span class="number">0</span></div><div class="line">    [s] =&gt; <span class="number">0</span></div><div class="line">    [weekday] =&gt; <span class="number">0</span></div><div class="line">    [weekday_behavior] =&gt; <span class="number">0</span></div><div class="line">    [first_last_day_of] =&gt; <span class="number">0</span></div><div class="line">    [invert] =&gt; <span class="number">0</span></div><div class="line">    [days] =&gt; <span class="number">1</span></div><div class="line">    [special_type] =&gt; <span class="number">0</span></div><div class="line">    [special_amount] =&gt; <span class="number">0</span></div><div class="line">    [have_weekday_relative] =&gt; <span class="number">0</span></div><div class="line">    [have_special_relative] =&gt; <span class="number">0</span></div><div class="line">)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jamesban.github.io/2014/12/04/DateTime类的常见用法/" data-id="cj6qkiuum00045gu0gf018o2e" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/date/">date</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-mongodb注入问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/01/mongodb注入问题/" class="article-date">
+  <time datetime="2014-12-01T12:54:47.000Z" itemprop="datePublished">12月 1 2014</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/01/mongodb注入问题/">mongodb注入攻击</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一直以为注入只存在关系型数据库中，看了这篇<a href="http://drops.wooyun.org/tips/3939" target="_blank" rel="external">文章</a>才知道mongodb也会中招.<br>翻看php手册发现早就发现有这个<a href="http://php.net/manual/zh/mongo.security.php" target="_blank" rel="external">问题</a>，以前看手册一直没注意.</p>
+<p>数组绑定时的注入</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$mongo = <span class="keyword">new</span> mongoclient();</div><div class="line"><span class="comment">//选择数据库</span></div><div class="line">$db = $mongo-&gt;myinfo; </div><div class="line"> <span class="comment">//选择集合</span></div><div class="line">$coll = $db-&gt;test;</div><div class="line"></div><div class="line">$username = $_GET[<span class="string">'username'</span>];</div><div class="line">$password = $_GET[<span class="string">'password'</span>];</div><div class="line">$data = <span class="keyword">array</span>(</div><div class="line">        <span class="string">'username'</span>=&gt;$username,</div><div class="line">        <span class="string">'password'</span>=&gt;$password</div><div class="line">        );</div><div class="line">$data = $coll-&gt;find($data);</div><div class="line">$count = $data-&gt;count();</div><div class="line"><span class="keyword">if</span> ($count&gt;<span class="number">0</span>) &#123;</div><div class="line">    <span class="keyword">foreach</span> ($data <span class="keyword">as</span> $user) &#123;</div><div class="line">        <span class="keyword">echo</span> <span class="string">'username:'</span>.$user[<span class="string">'username'</span>].<span class="string">"&lt;/br&gt;"</span>;</div><div class="line">        <span class="keyword">echo</span> <span class="string">'password:'</span>.$user[<span class="string">'password'</span>].<span class="string">"&lt;/br&gt;"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">else</span>&#123;</div><div class="line">    <span class="keyword">echo</span> <span class="string">'未找到'</span>;</div><div class="line">&#125;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<p>如果传入url为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://127.0.0.1/2.php?username[$ne]=test&amp;password[$ne]=test</div></pre></td></tr></table></figure></p>
+<p>mongodb最终执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.test.find(&#123;username:&#123;&apos;$ne&apos;:&apos;test&apos;&#125;,password:&#123;&apos;$ne&apos;:&apos;test&apos;&#125;&#125;);</div></pre></td></tr></table></figure></p>
+<p>php会把test集合内的所有数据全部便利出来。</p>
+<p>防止注入的方法也很简单, 注意参数的检验.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">...</div><div class="line">$username = $_GET[<span class="string">'username'</span>];</div><div class="line">$password = $_GET[<span class="string">'password'</span>];</div><div class="line"></div><div class="line">$username = is_string($username) ? $username : <span class="string">''</span>;</div><div class="line">$password = is_string($password) ? $password : <span class="string">''</span>;</div><div class="line">...</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<p>接受参数拼接直接以命令行执行的注入可以参考<a href="http://php.net/manual/zh/mongo.security.php" target="_blank" rel="external">php手册</a> 使用MongoCode 进行转椅后再使用.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jamesban.github.io/2014/12/01/mongodb注入问题/" data-id="cj6qkiuv6000c5gu0isd5dg0n" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongodb/">mongodb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-curl的https问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/28/curl的https问题/" class="article-date">
+  <time datetime="2014-11-28T11:10:27.000Z" itemprop="datePublished">11月 28 2014</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/28/curl的https问题/">curl的https问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>php 使用curl访问https网站时遇到的问题。<br>代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">	$ch = curl_init();</div><div class="line">	curl_setopt($ch, CURLOPT_URL, $url);</div><div class="line">	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);</div><div class="line">	curl_setopt($ch, CURLOPT_TIMEOUT, 1);</div><div class="line">	$return = curl_exec($ch);		</div><div class="line">	curl_close($ch);</div><div class="line"></div><div class="line">	var_dump($return);</div><div class="line">?&gt;</div></pre></td></tr></table></figure></p>
+<p>返回false</p>
+<p>修改代码 在curl_exec  后加入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">if(curl_errno($ch))&#123;</div><div class="line">    	var_dump(curl_error($ch));</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>可以看到 证书获取不到的提示信息</p>
+<blockquote>
+<p>SSL certificate problem: unable to get local issuer certificate</p>
+</blockquote>
+<ul>
+<li>简单解决 加入一下选项 禁用证书检查<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>添加证书解决</p>
+<ol>
+<li><p>获取证书</p>
+<ol>
+<li>在浏览器(firefox)打开请求的接口地址，</li>
+<li>选择菜单（工具–查看页面信息）</li>
+<li>安全–查看证书–详细信息–选择顶级证书机构–导出(X.509(pem))</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+<pre><code>2. 修改代码 添加如下选项
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);</div><div class="line">curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);</div><div class="line">curl_setopt($ch, CURLOPT_CAINFO, __DIR__ . &apos;/BuiltinObjectToken-EquifaxSecureCA.crt&apos;);</div></pre></td></tr></table></figure>
+<p>SSL CA cert (path? access rights?) 问题 参考<a href="http://stackoverflow.com/questions/7179216/php-problem-with-the-ssl-ca-cert-path-access-rights" target="_blank" rel="external">stackoverflow</a>直接重启php-fpm</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jamesban.github.io/2014/11/28/curl的https问题/" data-id="cj6qkiuuz00065gu0kukkyx4s" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/curl/">curl</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-api签名" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/27/api签名/" class="article-date">
+  <time datetime="2014-11-27T15:32:40.000Z" itemprop="datePublished">11月 27 2014</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/27/api签名/">api签名</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>为了提高传输过程参数的防篡改性，必须使用签名参数sig.<br>本文只是一个签名的简单实现 验证参数完整性 请求超时.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span></span></div><div class="line"><span class="class"></span>&#123;</div><div class="line">    <span class="keyword">CONST</span> API_PUBLIC_KEY = <span class="string">"asdadasdaxxxx"</span>;</div><div class="line">    <span class="keyword">CONST</span> URL = <span class="string">'http://example.com/api/'</span>;</div><div class="line">   </div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">signature</span><span class="params">(array $param, </span></span></div><div class="line"><span class="function"><span class="params">             $timeOut = <span class="number">60</span>)</span></span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        $param[<span class="string">'expire'</span>] = time() + $timeOut;</div><div class="line">        $param[<span class="string">'sig'</span>] = hash_hmac(<span class="string">'sha256'</span>, </div><div class="line">                join(<span class="string">''</span>, $param), <span class="keyword">self</span>::API_PUBLIC_KEY);</div><div class="line">        <span class="keyword">$this</span>-&gt;param = $param;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getRequestUrl</span><span class="params">()</span></span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">self</span>::URL . <span class="string">'?'</span> . http_build_query(<span class="keyword">$this</span>-&gt;param);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">validateSignature</span><span class="params">($param, $sig)</span></span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        <span class="keyword">return</span> hash_hmac(<span class="string">'sha256'</span>, join(<span class="string">''</span>, $param), <span class="keyword">self</span>::API_PUBLIC_KEY)</div><div class="line">             == $sig;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">$obj = <span class="keyword">new</span> SomeClass();</div><div class="line"></div><div class="line">$param = <span class="keyword">array</span>(<span class="string">'useranme'</span> =&gt; <span class="string">'zhangsan'</span>);</div><div class="line"></div><div class="line"><span class="comment">//http://example.com/api/?useranme=zhangsan&amp;expire=1408628093&amp;sig=27b11880e19691b7e110cc8665c55160fc2b321b74c33b4877fac2da0545640e</span></div><div class="line"><span class="keyword">echo</span> $obj-&gt;signature($param, <span class="number">300</span>)-&gt;getRequestUrl();</div><div class="line"></div><div class="line"></div><div class="line">$sig = <span class="keyword">isset</span>($_GET[<span class="string">'sig'</span>]) ? $_GET[<span class="string">'sig'</span>] : <span class="string">''</span>;</div><div class="line">$expire = <span class="keyword">isset</span>($_GET[<span class="string">'expire'</span>]) ? $_GET[<span class="string">'expire'</span>] : <span class="string">''</span>;</div><div class="line"><span class="keyword">if</span>(!$obj-&gt;validateSignature($param, $sig))&#123;</div><div class="line">    <span class="keyword">echo</span> <span class="string">"签名验证错误"</span>;</div><div class="line">    <span class="keyword">exit</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">if</span>($expire &lt; time()) &#123;</div><div class="line">    <span class="keyword">echo</span> <span class="string">"请求超时"</span>;</div><div class="line">    <span class="keyword">exit</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">echo</span> <span class="string">"processing"</span>;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jamesban.github.io/2014/11/27/api签名/" data-id="cj6qkiuuw00055gu025ecu6ja" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/api/">api</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-检查文档是否存在" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/27/检查文档是否存在/" class="article-date">
+  <time datetime="2014-11-27T15:30:46.000Z" itemprop="datePublished">11月 27 2014</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/27/检查文档是否存在/">检查文档是否存在</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>&lt;?php
+    $mongo = new MongoClient();
+    $db = $mongo-&gt;dbName;
+    $collection = $db-&gt;collectionName;
+
+    $cursor = $collection-&gt;find(
+        $criteria, 
+        array(&apos;_id&apos; =&gt; 1)
+    )-&gt;limit(1);
+
+    if($coursor-&gt;count() == 0){
+      exit(&apos;not exist&apos;);
+    }
+
+    exit(&apos;exits&apos;);
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jamesban.github.io/2014/11/27/检查文档是否存在/" data-id="cj6qkiuwd001a5gu0l62vkkok" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongodb/">mongodb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/tags/php/">&laquo; Prev</a><a class="page-number" href="/tags/php/">1</a><span class="page-number current">2</span>
+    </nav>
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/api/">api</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/closures/">closures</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/curl/">curl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/date/">date</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ffmpeg/">ffmpeg</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/google/">google</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/log/">log</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/memcached/">memcached</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mod-zip/">mod_zip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nignx/">nignx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/photo/">photo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pyton/">pyton</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sphinx/">sphinx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swoole/">swoole</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yii/">yii</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/骑行/">骑行</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/closures/" style="font-size: 10px;">closures</a> <a href="/tags/curl/" style="font-size: 10px;">curl</a> <a href="/tags/date/" style="font-size: 10px;">date</a> <a href="/tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="/tags/google/" style="font-size: 10px;">google</a> <a href="/tags/linux/" style="font-size: 13.33px;">linux</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/memcached/" style="font-size: 10px;">memcached</a> <a href="/tags/mod-zip/" style="font-size: 10px;">mod_zip</a> <a href="/tags/mongodb/" style="font-size: 16.67px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nignx/" style="font-size: 10px;">nignx</a> <a href="/tags/photo/" style="font-size: 10px;">photo</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/pyton/" style="font-size: 10px;">pyton</a> <a href="/tags/sphinx/" style="font-size: 10px;">sphinx</a> <a href="/tags/swoole/" style="font-size: 10px;">swoole</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/yii/" style="font-size: 10px;">yii</a> <a href="/tags/骑行/" style="font-size: 10px;">骑行</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/08/17/修复yum/">修复yum</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/13/西湖/">西湖</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/12/python文字发音/">python文字发音</a>
+          </li>
+        
+          <li>
+            <a href="/2015/03/23/mysql多值查询/">mysql多值查询</a>
+          </li>
+        
+          <li>
+            <a href="/2015/03/11/php的匿名函数/">php的匿名函数</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 jamesBan<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

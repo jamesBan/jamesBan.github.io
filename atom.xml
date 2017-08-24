@@ -1,0 +1,1110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>我的地盘</title>
+  <subtitle>phper</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://jamesban.github.io/"/>
+  <updated>2017-08-24T14:57:56.429Z</updated>
+  <id>http://jamesban.github.io/</id>
+  
+  <author>
+    <name>jamesBan</name>
+    <email>niupeiyuan@gmail.com</email>
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>修复yum</title>
+    <link href="http://jamesban.github.io/2017/08/17/%E4%BF%AE%E5%A4%8Dyum/"/>
+    <id>http://jamesban.github.io/2017/08/17/修复yum/</id>
+    <published>2017-08-16T16:00:00.000Z</published>
+    <updated>2017-08-24T14:57:56.429Z</updated>
+    
+    <content type="html"><![CDATA[<p>手欠在服务器上卸载了python，结果悲剧了。yum直接跪了。（yum是python编写的工具）</p>
+<p>网站搜索一下，真有和我一样手欠的。记录下修复方法。</p>
+<p>首先找到centos的光盘或ISO文件，只要系统版本一样即可。拷贝如下文件到系统中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">python-2.6.6-36.el6.x86_64.rpm</div><div class="line"></div><div class="line">python-urlgrabber-3.9.1-8.el6.noarch.rpm</div><div class="line"></div><div class="line">python-devel-2.6.6-36.el6.x86_64.rpm</div><div class="line"></div><div class="line">python-libs-2.6.6-36.el6.x86_64.rpm</div><div class="line"></div><div class="line">yum-3.2.29-40.el6.centos.noarch.rpm</div></pre></td></tr></table></figure>
+<p>如果本地没有系统版可以在相应的镜像网站下载（<a href="http://mirrors.163.com、http://mirrors.sohu.com/）。" target="_blank" rel="external">http://mirrors.163.com、http://mirrors.sohu.com/）。</a></p>
+<ul>
+<li>安装python</li>
+</ul>
+<p>具体版本号，根据系统盘或ISO提供为准。拷贝如下目录：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#/usr/local/src/Python-2.6.6</div></pre></td></tr></table></figure>
+<p>执行安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#cd /usr/local/src/Python-2.6.6</div></pre></td></tr></table></figure>
+<p>下载依赖包进行安装，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#wget http://mirror.centos.org/centos/6/os/x86_64/Packages/&#123;rpm-4.8.0-47.el6.x86_64,rpm-libs-4.8.0-47.el6.x86_64,gpgme-1.1.8-3.el6.x86_64,nss_compat_ossl-0.9.6-1.el6.x86_64,pygpgme-0.1-18.20090824bzr68.el6.x86_64,python-iniparse-0.3.1-2.1.el6.noarch,python-pycurl-7.19.0-8.el6.x86_64,python-urlgrabber-3.9.1-9.el6.noarch,rpm-python-4.8.0-47.el6.x86_64,yum-3.2.29-69.el6.centos.noarch,yum-metadata-parser-1.1.2-16.el6.x86_64,yum-plugin-fastestmirror-1.1.30-30.el6.noarch&#125;.rpm</div><div class="line"></div><div class="line">#rpm -Uvh --replacepkgs   *.rpm	</div><div class="line">#python -v</div></pre></td></tr></table></figure>
+<ul>
+<li><p>安装yum</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#wget http://yum.baseurl.org/download/3.4/yum-3.4.3.tar.gz</div><div class="line">#tar xzfv yum-3.4.3.tar.gz</div><div class="line">#cd yum-3.4.3</div><div class="line">#python yummain.py install yum</div><div class="line">#yum check-update</div><div class="line">#yum update</div><div class="line">#yum clean all</div></pre></td></tr></table></figure>
+<p>至此yum已经恢复正常。^_^</p>
+<hr>
+<p>参考:<a href="https://my.oschina.net/u/1414906/blog/296759" target="_blank" rel="external">https://my.oschina.net/u/1414906/blog/296759</a></p>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;手欠在服务器上卸载了python，结果悲剧了。yum直接跪了。（yum是python编写的工具）&lt;/p&gt;
+&lt;p&gt;网站搜索一下，真有和我一样手欠的。记录下修复方法。&lt;/p&gt;
+&lt;p&gt;首先找到centos的光盘或ISO文件，只要系统版本一样即可。拷贝如下文件到系统中：&lt;/p&gt;
+&lt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="http://jamesban.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>西湖</title>
+    <link href="http://jamesban.github.io/2015/08/13/%E8%A5%BF%E6%B9%96/"/>
+    <id>http://jamesban.github.io/2015/08/13/西湖/</id>
+    <published>2015-08-13T01:43:47.000Z</published>
+    <updated>2017-08-24T14:57:56.430Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://7sbkln.com1.z0.glb.clouddn.com/IMG_1128.JPG?imageMogr2/thumbnail/!75px" alt=""></p>
+<p><img src="http://7sbkln.com1.z0.glb.clouddn.com/IMG_1133.JPG?imageMogr2/rotate/180" alt=""></p>
+<p><img src="http://7sbkln.com1.z0.glb.clouddn.com/IMG_1140.JPG?imageMogr2/rotate/180" alt=""></p>
+<p><img src="http://7sbkln.com1.z0.glb.clouddn.com/IMG_1138.JPG?imageMogr2/rotate/180" alt=""></p>
+<p><img src="http://7sbkln.com1.z0.glb.clouddn.com/IMG_1136.JPG?imageMogr2/rotate/180" alt=""></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://7sbkln.com1.z0.glb.clouddn.com/IMG_1128.JPG?imageMogr2/thumbnail/!75px&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7sbkln.com1.z0.g
+    
+    </summary>
+    
+    
+      <category term="photo" scheme="http://jamesban.github.io/tags/photo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python文字发音</title>
+    <link href="http://jamesban.github.io/2015/08/12/python%E6%96%87%E5%AD%97%E5%8F%91%E9%9F%B3/"/>
+    <id>http://jamesban.github.io/2015/08/12/python文字发音/</id>
+    <published>2015-08-12T12:46:05.000Z</published>
+    <updated>2017-08-24T14:57:56.427Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li><a href="https://www.python.org/downloads/release/python-279/" target="_blank" rel="external">python-2.7.9.msi</a></li>
+<li><a href="http://sourceforge.net/projects/pywin32/files/pywin32/Build%20219/" target="_blank" rel="external">pywin32-219.win32-py2.7.exe</a>(要翻墙)</li>
+</ul>
+<p>安装python 配置环境变量，使用pip安装pyttsx</p>
+<pre><code># coding=utf-8
+
+#@see http://pyttsx.readthedocs.org/en/latest/engine.html#examples
+import pyttsx
+engine = pyttsx.init()
+
+#语速
+rate = engine.getProperty(&apos;rate&apos;)
+#print rate
+
+#音量
+volume = engine.getProperty(&apos;volume&apos;)
+#print volume
+
+engine.setProperty(&apos;rate&apos;, 100)
+engine.setProperty(&apos;volume&apos;,  2000)
+
+#语音类别
+voices = engine.getProperty(&apos;voices&apos;)
+engine.say(u&apos;李洋是逗比&apos;)
+
+&apos;&apos;&apos;
+for voice in voices:
+   engine.setProperty(&apos;voice&apos;, voice.id)
+   print voice.id
+&apos;&apos;&apos;
+
+engine.runAndWait()
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.python.org/downloads/release/python-279/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;python-2.7.9.msi&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href
+    
+    </summary>
+    
+    
+      <category term="pyton" scheme="http://jamesban.github.io/tags/pyton/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mysql多值查询</title>
+    <link href="http://jamesban.github.io/2015/03/23/mysql%E5%A4%9A%E5%80%BC%E6%9F%A5%E8%AF%A2/"/>
+    <id>http://jamesban.github.io/2015/03/23/mysql多值查询/</id>
+    <published>2015-03-23T11:28:06.000Z</published>
+    <updated>2017-08-24T13:47:13.549Z</updated>
+    
+    <content type="html"><![CDATA[<p>现有如下标签和文章对象表<code>fy_content_tag</code> 如下:</p>
+<pre><code>CREATE TABLE `fy_content_tag` (
+    `id` INT(11) NOT NULL,
+    `tagid` INT(11) NOT NULL
+)
+COLLATE=&apos;utf8_unicode_ci&apos;
+ENGINE=InnoDB;
+</code></pre><p>插入数据</p>
+<pre><code>INSERT INTO `fy_content_tag` (`id`, `tagid`) VALUES
+    (1, 1),(1, 2),(1, 3),(1, 4),
+    (2, 2),(2, 3),(2, 4),(2, 5),(2, 6),
+    (3, 3),(3, 4), (3, 5),(3, 6),(3, 7),
+    (4, 4),(4, 5),(4, 6),(4, 7),(4, 8),(5, 5),(5, 6),(5, 7),(5, 8),(5, 9);
+</code></pre><p>需要查询tagid同时包含2、3、4的id</p>
+<p>##使用sql行变列</p>
+<pre><code>SELECT id, SUM(CASE tagid WHEN 2 THEN 1 WHEN 3 THEN 1 WHEN 4 THEN 1 ELSE 0 END) AS tag_id
+FROM fy_content_tag
+WHERE 1
+GROUP BY id
+HAVING tag_id = 3;
+</code></pre><h2 id="使用sphinx的多值"><a href="#使用sphinx的多值" class="headerlink" title="使用sphinx的多值"></a>使用sphinx的多值</h2><h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>参考<a href="http://blog.sina.com.cn/s/blog_7eef675d0101fimb.html" target="_blank" rel="external">sphinx设置多属性过滤的方法</a><br>在sphinx 配置文件source 内添加多值属性定义:</p>
+<pre><code>sql_attr_multi = uint tagid from query;\
+    SELECT id,tagid FROM fy_content_tag
+</code></pre><h3 id="使用phpapi查询"><a href="#使用phpapi查询" class="headerlink" title="使用phpapi查询"></a>使用phpapi查询</h3><pre><code>//查出拥有标签2的文档
+$sphinx-&gt;setFilter(&apos;tagid&apos;, array(2));
+
+查出同时拥有标签2,3,4的文档
+$sphinx-&gt;setFilter(&apos;tagid&apos;, array(2));
+$sphinx-&gt;setFilter(&apos;tagid&apos;, array(3));
+$sphinx-&gt;setFilter(&apos;tagid&apos;, array(4));
+</code></pre><p>如果标签值(tagid)为1,2,3也可以设置为</p>
+<pre><code>sql_attr_multi = uint tagid from filed
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;现有如下标签和文章对象表&lt;code&gt;fy_content_tag&lt;/code&gt; 如下:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;CREATE TABLE `fy_content_tag` (
+    `id` INT(11) NOT NULL,
+    `tagid` INT(11)
+    
+    </summary>
+    
+    
+      <category term="mysql" scheme="http://jamesban.github.io/tags/mysql/"/>
+    
+      <category term="sphinx" scheme="http://jamesban.github.io/tags/sphinx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>php的匿名函数</title>
+    <link href="http://jamesban.github.io/2015/03/11/php%E7%9A%84%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0/"/>
+    <id>http://jamesban.github.io/2015/03/11/php的匿名函数/</id>
+    <published>2015-03-11T14:13:25.000Z</published>
+    <updated>2017-08-24T13:47:13.551Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">匿名函数</div><div class="line"> </div><div class="line">匿名函数（Anonymous functions），也叫闭包函数（closures），</div><div class="line">允许 临时创建一个没有指定名称的函数。最经常用作回调函数（callback）参数的值。</div><div class="line">当然，也有其它应用的情况。</div></pre></td></tr></table></figure>
+<p>闭包的写法</p>
+<h2 id="5-2本版以下"><a href="#5-2本版以下" class="headerlink" title="5.2本版以下"></a>5.2本版以下</h2><p>看起来好怪异</p>
+<pre><code>&lt;?php
+$newfunc  =  create_function(&apos;$a, $b&apos;,
+  &apos;return &quot;ln($a) + ln($b) = &quot; . log($a * $b);&apos; 
+);
+echo  &quot;New anonymous function:  $newfunc \n&quot; ;
+echo  $newfunc ( 2 ,  M_E ) .  &quot;\n&quot; ;
+ // outputs
+// New anonymous function: lambda_1
+// ln(2) + ln(2.718281828459) = 1.6931471805599
+?&gt; 
+</code></pre><p>##5.3版本以上<br>和js很相像。</p>
+<pre><code>&lt;?php
+$greet  = function( $name )
+{
+     printf ( &quot;Hello %s\r\n&quot; ,  $name );
+};
+
+ $greet ( &apos;World&apos; );
+ $greet ( &apos;PHP&apos; );
+</code></pre><p>打印$greet变量结果一下</p>
+<pre><code>object(Closure)#1 (1) {
+  [&quot;parameter&quot;]=&gt;
+  array(1) {
+    [&quot;$name&quot;]=&gt;
+    string(10) &quot;&lt;required&gt;&quot;
+  }
+}
+</code></pre><p>可以看出$greet其实一个<a href="http://php.net/manual/zh/class.closure.php" target="_blank" rel="external">Closure</a>对象实例。<br>$greet()其实执行的是魔术方法<a href="http://php.net/manual/zh/language.oop5.magic.php#object.invoke" target="_blank" rel="external">__invoke()</a>。</p>
+<p>代码如下:</p>
+<pre><code>&lt;?php
+
+/**
+ * 
+ */
+class Obj
+{
+    /**
+     * [__invoke description]
+     * @param  [type] $name [description]
+     * @return [type]       [description]
+     */
+    public function __invoke($name)
+    {
+        printf ( &quot;Hello %s\r\n&quot; ,  $name );
+    }
+
+    /**
+     * [test description]
+     * @return [type] [description]
+     */
+    public function test()
+    {
+        return function($name){
+            printf ( &quot;Hello %s\r\n&quot; ,  $name );
+        };
+    }
+}
+
+$greet = new Obj();
+$greet(&quot;World&quot;); //Hello World
+$hello = $greet-&gt;test();
+$hello(&apos;zhang san&apos;); //Hello zhang san
+</code></pre><p>##作用域<br>匿名函数闭包使用<code>use</code>关键字使用外部变量。</p>
+<pre><code>&lt;?php
+class Obj
+{
+    public function hello()
+    {
+        $name = &apos;zhangsan&apos;;
+        $greet = function($prefix) use ($name) {
+            echo &quot;{$prefix}, {$name}&quot;;
+        };
+
+        $greet(&apos;hi&apos;);
+    }
+}
+
+
+$obj = new Obj();
+$obj-&gt;hello(); //hi, zhangsan
+</code></pre><p><code>$this</code>是一个特殊变量不能直接使用(作用域的原因参考js的<a href="https://bonsaiden.github.io/JavaScript-Garden/zh/#function.this" target="_blank" rel="external">this 的工作原理</a>)。可以使用如下代码:</p>
+<pre><code>&lt;?php
+class Obj
+{
+    public $name = &apos;zhangsan&apos;;
+
+    public function hello()
+    {
+        $that = $this;
+        $greet = function($prefix) use ($that) {
+            echo &quot;{$prefix}, {$this-&gt;name}&quot;;
+        };
+
+        $greet(&apos;hi&apos;);
+    }
+}
+
+
+$obj = new Obj();
+$obj-&gt;hello(); //hi, zhangsan
+</code></pre><p>##绑定函数到一个对象<br>绑定使用的是<code>Closure::bind/bindTo</code> — 复制一个闭包，绑定指定的$this对象和类作用域。</p>
+<pre><code>&lt;?php
+$f = function()
+{
+    return $this-&gt;value + 2;
+};
+
+class NewValueHolder
+{
+    public $value;
+}
+
+$vh = new NewValueHolder();
+$vh-&gt;value = 3;
+$c = $f-&gt;bindTo($vh);
+var_dump($c()); //Fatal error: Cannot access protected property NewValueHolder::$value
+</code></pre><p>上述代码会报错是因为$this的作用并没有发生变化。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">public Closure  Closure::bindTo  ( object $newthis  [, mixed  $newscope  = &apos;static&apos;  ] )</div><div class="line"></div><div class="line"> newscope  </div><div class="line">关联到匿名函数的类作用域，或者 &apos;static&apos; 保持当前状态。如果是一个对象，则使用这个对象的类型为心得类作用域。 这会决定绑定的对象的 保护、私有成员 方法的可见性。</div></pre></td></tr></table></figure></p>
+<p>修改bindTo为<code>$c = $f-&gt;bindTo($vh, $vh);</code>则可以按照预期运行。</p>
+<p><a href="http://levi.cg.am/archives/3602" target="_blank" rel="external">带你穿越带你飞～，一秒钟PHP变JS ＝^ ＝!!!</a>这篇文章有更淫荡的用法。</p>
+<h2 id="闭包的应用"><a href="#闭包的应用" class="headerlink" title="闭包的应用"></a>闭包的应用</h2><ol>
+<li><p>作为回调函数(<code>array_map, array_reduce,array_walk</code>等)</p>
+<pre><code>&lt;?php
+$data [] = array( &apos;volume&apos;  =&gt;  67 ,  &apos;edition&apos;  =&gt;  2 );
+$data [] = array( &apos;volume&apos;  =&gt;  86 ,  &apos;edition&apos;  =&gt;  1 );
+$data [] = array( &apos;volume&apos;  =&gt;  85 ,  &apos;edition&apos;  =&gt;  6 );
+$data [] = array( &apos;volume&apos;  =&gt;  98 ,  &apos;edition&apos;  =&gt;  2 );
+$data [] = array( &apos;volume&apos;  =&gt;  86 ,  &apos;edition&apos;  =&gt;  6 );
+$data [] = array( &apos;volume&apos;  =&gt;  67 ,  &apos;edition&apos;  =&gt;  7 );
+
+$volumes = array_map(function($row){
+    return $row[&apos;volume&apos;];
+}, $data);
+</code></pre></li>
+</ol>
+<pre><code>$volumeSum = 0;
+$volumeSum = array_reduce($volumes, function($volumeSum, $current){
+    $volumeSum += $current;
+    return $volumeSum;
+});
+
+print_r($volumes); //volume列的所有值
+
+print_r($volumeSum); //volume列的总和
+</code></pre><ol>
+<li><p>复用函数或方法的代码片段</p>
+<pre><code>&lt;?php
+
+/**
+ * 
+ */
+class Obj
+{
+    public function calc($num)
+    {
+        $space = function($num) {
+            return $num + 1;
+        };
+
+        if(逻辑1) {
+            $num1 = $space($num);
+        } elseif(逻辑2) {
+            $num2 = $space($num2);
+        }
+    }
+}
+</code></pre></li>
+</ol>
+<p>参考</p>
+<p><a href="http://php.net/manual/zh/class.closure.php" target="_blank" rel="external">Closure 类</a></p>
+<p><a href="http://php.net/manual/zh/functions.anonymous.php" target="_blank" rel="external">匿名函数</a></p>
+<p><a href="http://research.quanbit.com/2013/01/04/this-in-php-closures/" target="_blank" rel="external">$this in PHP closures</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/di
+    
+    </summary>
+    
+    
+      <category term="php" scheme="http://jamesban.github.io/tags/php/"/>
+    
+      <category term="closures" scheme="http://jamesban.github.io/tags/closures/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>国内顺利使用Google的代理网站</title>
+    <link href="http://jamesban.github.io/2015/03/09/google%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/"/>
+    <id>http://jamesban.github.io/2015/03/09/google反向代理/</id>
+    <published>2015-03-09T13:36:27.000Z</published>
+    <updated>2017-08-24T13:47:13.526Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://www.gugesou.com/" target="_blank" rel="external">http://www.gugesou.com/</a><br><a href="http://www.googke.me/" target="_blank" rel="external">http://www.googke.me/</a><br><a href="http://s.amysql.com/" target="_blank" rel="external">http://s.amysql.com/</a><br><a href="http://onccc.net/" target="_blank" rel="external">http://onccc.net/</a><br><a href="http://www.googleisok.com/" target="_blank" rel="external">http://www.googleisok.com/</a><br><a href="https://yue.pao.im/" target="_blank" rel="external">https://yue.pao.im/</a><br><a href="https://da.pao.im/" target="_blank" rel="external">https://da.pao.im/</a><br><a href="https://ibd.pt/" target="_blank" rel="external">https://ibd.pt/</a><br><a href="https://soso.red/" target="_blank" rel="external">https://soso.red/</a><br><a href="https://google.sqzr.cc/" target="_blank" rel="external">https://google.sqzr.cc/</a><br><a href="https://www.out1000.com/" target="_blank" rel="external">https://www.out1000.com/</a><br><a href="http://web.btbook.net/" target="_blank" rel="external">http://web.btbook.net/</a><br><a href="https://www.lamjoeone.info/" target="_blank" rel="external">https://www.lamjoeone.info/</a><br><a href="https://jiong.lu/" target="_blank" rel="external">https://jiong.lu/</a><br><a href="http://www.googleforchina.com/" target="_blank" rel="external">http://www.googleforchina.com/</a><br><a href="https://g.net.co/" target="_blank" rel="external">https://g.net.co/</a><br><a href="https://repigu.com/" target="_blank" rel="external">https://repigu.com/</a><br><a href="https://awk.so/" target="_blank" rel="external">https://awk.so/</a><br><a href="http://gl.randomk.org/" target="_blank" rel="external">http://gl.randomk.org/</a><br><a href="https://g4w.me/" target="_blank" rel="external">https://g4w.me/</a><br><a href="https://safesearch.avira.com" target="_blank" rel="external">https://safesearch.avira.com</a><br><a href="https://sec.hikyle.me/" target="_blank" rel="external">https://sec.hikyle.me/</a><br><a href="http://suche.web.de/" target="_blank" rel="external">http://suche.web.de/</a><br><a href="http://webwebweb.com/" target="_blank" rel="external">http://webwebweb.com/</a><br><a href="http://guge.io/" target="_blank" rel="external">http://guge.io/</a><br><a href="https://g.keyiso.com/" target="_blank" rel="external">https://g.keyiso.com/</a><br><a href="https://goojie.me/" target="_blank" rel="external">https://goojie.me/</a><br><a href="http://e127f.azurewebsites.net/" target="_blank" rel="external">http://e127f.azurewebsites.net/</a><br><a href="http://0s.o53xo.m5xw6z3mmuxgizi.erenta.ru/" target="_blank" rel="external">http://0s.o53xo.m5xw6z3mmuxgizi.erenta.ru/</a><br><a href="http://www.souji8.com/" target="_blank" rel="external">http://www.souji8.com/</a><br><a href="http://865ba.azurewebsites.net/" target="_blank" rel="external">http://865ba.azurewebsites.net/</a><br><a href="https://gusouk.com/" target="_blank" rel="external">https://gusouk.com/</a><br><a href="https://d3vv89cvqbrqlq.cloudfront.net/" target="_blank" rel="external">https://d3vv89cvqbrqlq.cloudfront.net/</a><br><a href="http://out1000.com/" target="_blank" rel="external">http://out1000.com/</a><br><a href="https://gg.jude.me/" target="_blank" rel="external">https://gg.jude.me/</a><br><a href="http://google.chn.im/" target="_blank" rel="external">http://google.chn.im/</a><br><a href="http://www.sousuodao.com" target="_blank" rel="external">http://www.sousuodao.com</a> 搜索岛<br><a href="http://www.googleout.com/" target="_blank" rel="external">http://www.googleout.com/</a><br><a href="https://g.ratafee.nl/" target="_blank" rel="external">https://g.ratafee.nl/</a><br><a href="http://www.1220.cc/" target="_blank" rel="external">http://www.1220.cc/</a><br><a href="http://music.google.cn/webhp" target="_blank" rel="external">http://music.google.cn/webhp</a><br><a href="https://www.glgoo.com" target="_blank" rel="external">https://www.glgoo.com</a> GLGOO<br><a href="https://gg.eeload.com/" target="_blank" rel="external">https://gg.eeload.com/</a> GG.EELOAD.COM<br><a href="http://gusou.in/" target="_blank" rel="external">http://gusou.in/</a> GUSO.IN<br><a href="http://www.wow.com/" target="_blank" rel="external">http://www.wow.com/</a> WOW<br><a href="https://xie.lu/" target="_blank" rel="external">https://xie.lu/</a> 斜路<br><a href="https://www.ggncr.com" target="_blank" rel="external">https://www.ggncr.com</a> GGNCR.COM<br><a href="http://www.gfsoso.com" target="_blank" rel="external">http://www.gfsoso.com</a> 谷粉搜搜<br><a href="http://www.886404.com/" target="_blank" rel="external">http://www.886404.com/</a> 886 404 Google<br><a href="https://g.ttlsa.com/" target="_blank" rel="external">https://g.ttlsa.com/</a><br><a href="http://home.tb.ask.com/" target="_blank" rel="external">http://home.tb.ask.com/</a> ASK Google<br><a href="http://verygoogle.com/" target="_blank" rel="external">http://verygoogle.com/</a><br><a href="http://g.openibm.com/" target="_blank" rel="external">http://g.openibm.com/</a> OpenIBM Google<br><a href="http://z7.cc" target="_blank" rel="external">http://z7.cc</a><br><a href="http://www.Google.com.im" target="_blank" rel="external">http://www.Google.com.im</a> 谷歌复原<br><a href="http://goog.sinaapp.com" target="_blank" rel="external">http://goog.sinaapp.com</a><br><a href="https://sinaapp.co/" target="_blank" rel="external">https://sinaapp.co/</a> Google镜像<br><a href="https://wen.lu/" target="_blank" rel="external">https://wen.lu/</a> Google问路<br><a href="http://www.sssis.com" target="_blank" rel="external">http://www.sssis.com</a> 备案域名反代理到Google IP<br><a href="http://www.gvgle.com" target="_blank" rel="external">http://www.gvgle.com</a> 代理到Google IP<br><a href="http://gu1234.com" target="_blank" rel="external">http://gu1234.com</a> 代理到Google IP<br><a href="http://www.xiexingwen.com" target="_blank" rel="external">http://www.xiexingwen.com</a> Google镜像，动态检测可用Google服务器IP，实时更新<br><a href="https://s3.amazonaws.com/google./index.html" target="_blank" rel="external">https://s3.amazonaws.com/google./index.html</a> Google免翻墙镜像，如果镜像被封锁，访问 <a href="https://github.com/greatfire/wiki" target="_blank" rel="external">https://github.com/greatfire/wiki</a> 获得最新网址。<br><a href="http://www.GoogleStable.com" target="_blank" rel="external">http://www.GoogleStable.com</a> www.GoogleStable.com<br><a href="http://www.tmd123.com" target="_blank" rel="external">http://www.tmd123.com</a> 通天塔</p>
+<p>来源:<a href="https://tumutanzi.com/archives/12663" target="_blank" rel="external">国内顺利使用Google的另类技巧</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;http://www.gugesou.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.gugesou.com/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.googke.me/&quot; target=&quot;_
+    
+    </summary>
+    
+    
+      <category term="google" scheme="http://jamesban.github.io/tags/google/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>swoole 学习资源</title>
+    <link href="http://jamesban.github.io/2015/03/06/swoole/"/>
+    <id>http://jamesban.github.io/2015/03/06/swoole/</id>
+    <published>2015-03-06T11:20:01.000Z</published>
+    <updated>2017-08-24T13:47:13.553Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li><p>PHP 异步并行编程_韩天峰 <a href="http://wenku.it168.com/d_001518990.shtml" target="_blank" rel="external">http://wenku.it168.com/d_001518990.shtml</a></p>
+</li>
+<li><p>视频教程 <a href="http://wiki.swoole.com/wiki/index/prid-13" target="_blank" rel="external">http://wiki.swoole.com/wiki/index/prid-13</a></p>
+</li>
+<li><p>swoole文档及入门教程 <a href="https://github.com/LinkedDestiny/swoole-doc" target="_blank" rel="external">https://github.com/LinkedDestiny/swoole-doc</a></p>
+</li>
+<li><p>swoole多进程实例 <a href="http://www.royee.net/archives/261" target="_blank" rel="external">http://www.royee.net/archives/261</a></p>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;PHP 异步并行编程_韩天峰 &lt;a href=&quot;http://wenku.it168.com/d_001518990.shtml&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://wenku.it168.com/d_001518
+    
+    </summary>
+    
+    
+      <category term="swoole" scheme="http://jamesban.github.io/tags/swoole/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>yii-tips</title>
+    <link href="http://jamesban.github.io/2015/02/14/yii-tips/"/>
+    <id>http://jamesban.github.io/2015/02/14/yii-tips/</id>
+    <published>2015-02-14T11:22:53.000Z</published>
+    <updated>2017-08-24T13:47:13.554Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li><p>默认控制器</p>
+<ol>
+<li><p>普通控制器</p>
+<pre><code>defaultController =&gt; &apos;site&apos;
+</code></pre></li>
+<li><p>module内的默认控制器    </p>
+<pre><code>modules =&gt; array(
+    &apos;web&apos; =&gt; array(
+        &apos;class&apos; =&gt; &apos;application.modules.web.WebModule&apos;,
+        &apos;defaultController&apos; =&gt; &apos;index&apos;
+    )
+)
+</code></pre></li>
+<li><p>默认控制器为module内的控制器</p>
+<pre><code>defaultController =&gt; &apos;web/site&apos;
+</code></pre></li>
+</ol>
+</li>
+<li><p>别名</p>
+<ol>
+<li><p>内置别名有</p>
+<pre><code>Yii::setPathOfAlias(&apos;application&apos;,$this-&gt;getBasePath());
+Yii::setPathOfAlias(&apos;webroot&apos;,dirname($_SERVER[&apos;SCRIPT_FILENAME&apos;]));
+Yii::setPathOfAlias(&apos;ext&apos;,$this-&gt;getBasePath().DIRECTORY_SEPARATOR.&apos;extensions&apos;);
+</code></pre></li>
+<li><p>获取别名的路径</p>
+<pre><code>Yii::app-&gt;getAliasPath(&apos;webroot&apos;);
+</code></pre></li>
+<li><p>自定义别名</p>
+<pre><code>Yii::setPathOfAlias(&apos;test&apos;,$this-&gt;getBasePath());
+</code></pre></li>
+</ol>
+</li>
+<li><p>路由</p>
+<ol>
+<li><p>后缀</p>
+<pre><code>&apos;urlSuffix&apos;  =&gt; &apos;.html&apos;
+</code></pre></li>
+<li><p>忽略大小写</p>
+<pre><code>&apos;caseSensitive&apos; =&gt; false,
+</code></pre></li>
+<li><p>隐藏module</p>
+<pre><code>&apos;/&lt;controller:\w+&gt;&apos; =&gt; &apos;web/&lt;controller&gt;&apos;,
+&apos;/&lt;controller:\w+&gt;/&lt;action:\w+&gt;&apos; =&gt; &apos;web/&lt;controller&gt;/&lt;action&gt;&apos;,
+&apos;&lt;controller:\w+&gt;/&lt;action:\w+&gt;/&lt;id:\d+&gt;&apos;=&gt;&apos;web/&lt;controller&gt;/&lt;action&gt;&apos;
+</code></pre></li>
+</ol>
+</li>
+<li><p>日志</p>
+<p>  1、 显示执行的<code>sql</code></p>
+<pre><code>&apos;routes&apos; =&gt; array(
+    array(
+      &apos;class&apos; =&gt; &apos;CWebLogRoute&apos;,
+       &apos;levels&apos; =&gt; &apos;trace,warning,error,info&apos;,
+       &apos;categories&apos; =&gt; &apos;system.db.CDbCommand.*&apos;,
+   )
+),
+</code></pre><p>  2、自定<code>category</code>调试控制器台程序</p>
+<pre><code>array(
+    &apos;class&apos;=&gt;&apos;CFileLogRoute&apos;,          
+    &apos;categories&apos;=&gt;&apos;debug.*&apos;,
+),
+</code></pre><p>  使用</p>
+<pre><code>Yii::log($message, &apos;info&apos;, &apos;debug&apos;);
+</code></pre></li>
+<li><p>ActiveRecord</p>
+<ol>
+<li><p>自动记录 创建时间、修改时间</p>
+<pre><code>protected function beforeSave()
+{
+    if ($this-&gt;isNewRecord) {
+        $this-&gt;add_time = time();
+    } else {
+        $this-&gt;modify_time = time();
+    }
+    return parent::beforeSave();
+}
+</code></pre></li>
+</ol>
+</li>
+</ul>
+<pre><code>2. 乐观锁(版本号)
+
+        class PostModel extends CActiveRecord
+        {
+            public function rules()
+            {
+                return array(
+                    array(&apos;version&apos;, &apos;required&apos;),
+                    array(&apos;id&apos;, &apos;exists&apos;, &apos;on&apos; =&gt; &apos;update&apos;, &apos;criteria&apos; =&gt; array(&apos;condition&apos; =&gt; &apos;version &lt;&apos;. $this-&gt;version))
+                );
+            }
+        }
+
+        $model1 = PostModel::model()-&gt;findByPk(1);
+        $model2 = PostModel::model()-&gt;findByPk(1);
+
+        $model1-&gt;version = $model-&gt;version++;
+        $model-&gt;save();//true
+
+
+        $model2-&gt;save();//false
+</code></pre><ul>
+<li><p>显示控制器<code>action</code>执行时间</p>
+<pre><code>protected function afterAction($action)
+{
+    $time = sprintf(&apos;%0.5f&apos;, Yii::getLogger()-&gt;getExecutionTime());
+    $memory = round(memory_get_peak_usage() / (1024 * 1024), 2) . &quot;MB&quot;;
+
+    echo &quot;Time: $time, memory: $memory&quot;;
+    parent::afterAction($action);
+}
+</code></pre></li>
+<li><p>维护通知<code>main.php</code></p>
+<pre><code>return array(
+ .... 
+     &apos;catchAllRequest&apos;=&gt;array(
+          &apos;offline/notice&apos;
+          &apos;otherParams&apos;=&gt;&apos;value&apos;,
+      ),
+ ....
+),
+</code></pre></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;默认控制器&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;普通控制器&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;defaultController =&amp;gt; &amp;apos;site&amp;apos;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;module内的默认控制器    &lt;
+    
+    </summary>
+    
+    
+      <category term="yii" scheme="http://jamesban.github.io/tags/yii/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>memcached批量删除</title>
+    <link href="http://jamesban.github.io/2015/02/09/memcached%E6%89%B9%E9%87%8F%E5%88%A0%E9%99%A4/"/>
+    <id>http://jamesban.github.io/2015/02/09/memcached批量删除/</id>
+    <published>2015-02-09T11:49:30.000Z</published>
+    <updated>2017-08-24T13:47:13.546Z</updated>
+    
+    <content type="html"><![CDATA[<p>都说Cache是万金油，哪里不舒服抹哪里。不过要想批量删除缓存可没那么简单，<br>memcached 不支持批量删除缓存键。</p>
+<h2 id="遍历方式"><a href="#遍历方式" class="headerlink" title="遍历方式"></a>遍历方式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&lt;?php</div><div class="line">/**</div><div class="line"> * Function to get all memcache keys</div><div class="line"> * @author Manish Patel</div><div class="line"> * @Created:  28-May-2010</div><div class="line"> * @modified: 16-Jun-2011 </div><div class="line"> */</div><div class="line">function getMemcacheKeys() &#123;</div><div class="line"></div><div class="line">    $memcache = new Memcache;</div><div class="line">    $memcache-&gt;connect(&apos;127.0.0.1&apos;, 11211) or die (&quot;Could not connect to memcache server&quot;);</div><div class="line"></div><div class="line">    $list = array();</div><div class="line">    $allSlabs = $memcache-&gt;getExtendedStats(&apos;slabs&apos;);</div><div class="line">    $items = $memcache-&gt;getExtendedStats(&apos;items&apos;);</div><div class="line">    foreach($allSlabs as $server =&gt; $slabs) &#123;</div><div class="line">        foreach($slabs AS $slabId =&gt; $slabMeta) &#123;</div><div class="line">           $cdump = $memcache-&gt;getExtendedStats(&apos;cachedump&apos;,(int)$slabId);</div><div class="line">            foreach($cdump AS $keys =&gt; $arrVal) &#123;</div><div class="line">                if (!is_array($arrVal)) continue;</div><div class="line">                foreach($arrVal AS $k =&gt; $v) &#123;                   </div><div class="line">                    echo $k .&apos;&lt;br&gt;&apos;;</div><div class="line">                &#125;</div><div class="line">           &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;   </div><div class="line">&#125;//EO getMemcacheKeys()</div><div class="line">?&gt;</div></pre></td></tr></table></figure>
+<p>代码摘自 php手册</p>
+<h2 id="版本号方式"><a href="#版本号方式" class="headerlink" title="版本号方式"></a>版本号方式</h2><p>通过维护一个版本号管理缓存键,删除缓存时直接更新版本号，则带有版本号的缓存到过期时间时自动被删除(<a href="http://blog.charlee.li/memcached-003/" target="_blank" rel="external">memcached的删除机制和发展方向</a>)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&lt;?php</div><div class="line"></div><div class="line">$cache  = new Memcache();</div><div class="line">$cache-&gt;connect(&apos;127.0.0.1&apos;, 11211);</div><div class="line"></div><div class="line">$key1 = genKey(&apos;key1&apos;);</div><div class="line">$cache-&gt;set($key1, &apos;this is test1&apos;, 0, 60);</div><div class="line"></div><div class="line">$key2 = genKey(&apos;key2&apos;);</div><div class="line">$cache-&gt;set($key2, &apos;this is test2&apos;, 0, 60);</div><div class="line"></div><div class="line"></div><div class="line">print_r($cache-&gt;get($key1)); //this is test1</div><div class="line"></div><div class="line">print_r($cache-&gt;get($key2)); //this is test2</div><div class="line"></div><div class="line">//修改</div><div class="line">delVersionKey();</div><div class="line"></div><div class="line">//生成代码号的key</div><div class="line">function genKey($key) </div><div class="line">&#123;</div><div class="line">	global $cache;</div><div class="line"></div><div class="line">	$versionKey = getVersionKey();</div><div class="line">	$version = $cache-&gt;get($versionKey);</div><div class="line"></div><div class="line">	if($version === false) &#123;</div><div class="line">		$cache-&gt;set($versionKey, rand(1, 100));</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	return $key . $version;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//版本号前缀</div><div class="line">function getVersionKey()</div><div class="line">&#123;</div><div class="line">	return &apos;public_version_&apos;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//更新本版号值</div><div class="line">function delVersionKey()</div><div class="line">&#123;</div><div class="line">	global $cache;</div><div class="line">	$cache-&gt;increment(getVersionKey());</div><div class="line">&#125;</div><div class="line">?&gt;</div></pre></td></tr></table></figure>
+<h2 id="打tag方式"><a href="#打tag方式" class="headerlink" title="打tag方式"></a>打tag方式</h2><p>存储时关联缓存键和tag(可以多个)。删除时通过tag找到管理的缓存键，便利删除。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div></pre></td><td class="code"><pre><div class="line">class KeyEnabled_Memcached extends Zend_Cache_Backend_Memcached</div><div class="line">&#123;</div><div class="line"></div><div class="line">    private function getTagListId()</div><div class="line">    &#123;</div><div class="line">        return &quot;MyTagArrayCacheKey&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    private function getTags()</div><div class="line">    &#123;</div><div class="line">        if(!$tags = $this-&gt;_memcache-&gt;get($this-&gt;getTagListId()))</div><div class="line">        &#123;</div><div class="line">            $tags = array();</div><div class="line">        &#125;</div><div class="line">        return $tags;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    private function saveTags($id, $tags)</div><div class="line">    &#123;</div><div class="line">        // First get the tags</div><div class="line">        $siteTags = $this-&gt;getTags();</div><div class="line">        </div><div class="line">        foreach($tags as $tag)</div><div class="line">        &#123;</div><div class="line">            $siteTags[$tag][] = $id;</div><div class="line">        &#125;</div><div class="line">        $this-&gt;_memcache-&gt;set($this-&gt;getTagListId(), $siteTags);        </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    private function getItemsByTag($tag)</div><div class="line">    &#123;</div><div class="line">        $siteTags = $this-&gt;_memcache-&gt;get($this-&gt;getTagListId());</div><div class="line">        return isset($siteTags[$tag]) ? $siteTags[$tag] : false;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * Save some string datas into a cache record</div><div class="line">     *</div><div class="line">     * Note : $data is always &quot;string&quot; (serialization is done by the</div><div class="line">     * core not by the backend)</div><div class="line">     *</div><div class="line">     * @param  string $data             Datas to cache</div><div class="line">     * @param  string $id               Cache id</div><div class="line">     * @param  array  $tags             Array of strings, the cache record will be tagged by each string entry</div><div class="line">     * @param  int    $specificLifetime If != false, set a specific lifetime for this cache record (null =&gt; infinite lifetime)</div><div class="line">     * @return boolean True if no problem</div><div class="line">     */</div><div class="line">    public function save($data, $id, $tags = array(), $specificLifetime = false)</div><div class="line">    &#123;</div><div class="line">        $lifetime = $this-&gt;getLifetime($specificLifetime);</div><div class="line">        if ($this-&gt;_options[&apos;compression&apos;]) &#123;</div><div class="line">            $flag = MEMCACHE_COMPRESSED;</div><div class="line">        &#125; else &#123;</div><div class="line">            $flag = 0;</div><div class="line">        &#125;</div><div class="line">        $result = $this-&gt;_memcache-&gt;set($id, array($data, time()), $flag, $lifetime);</div><div class="line">        if (count($tags) &gt; 0) &#123;</div><div class="line">            $this-&gt;saveTags($id, $tags);</div><div class="line">        &#125;</div><div class="line">        return $result;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * Clean some cache records</div><div class="line">     *</div><div class="line">     * Available modes are :</div><div class="line">     * &apos;all&apos; (default)  =&gt; remove all cache entries ($tags is not used)</div><div class="line">     * &apos;old&apos;            =&gt; remove too old cache entries ($tags is not used)</div><div class="line">     * &apos;matchingTag&apos;    =&gt; remove cache entries matching all given tags</div><div class="line">     *                     ($tags can be an array of strings or a single string)</div><div class="line">     * &apos;notMatchingTag&apos; =&gt; remove cache entries not matching one of the given tags</div><div class="line">     *                     ($tags can be an array of strings or a single string)</div><div class="line">     *</div><div class="line">     * @param  string $mode Clean mode</div><div class="line">     * @param  array  $tags Array of tags</div><div class="line">     * @return boolean True if no problem</div><div class="line">     */</div><div class="line">    public function clean($mode = Zend_Cache::CLEANING_MODE_ALL, $tags = array())</div><div class="line">    &#123;</div><div class="line">        if ($mode==Zend_Cache::CLEANING_MODE_ALL) &#123;</div><div class="line">            return $this-&gt;_memcache-&gt;flush();</div><div class="line">        &#125;</div><div class="line">        if ($mode==Zend_Cache::CLEANING_MODE_OLD) &#123;</div><div class="line">            $this-&gt;_log(&quot;Zend_Cache_Backend_Memcached::clean() : CLEANING_MODE_OLD is unsupported by the Memcached backend&quot;);</div><div class="line">        &#125;</div><div class="line">        if ($mode==Zend_Cache::CLEANING_MODE_MATCHING_TAG) &#123;</div><div class="line">            $siteTags = $newTags = $this-&gt;getTags();</div><div class="line">            if(count($siteTags))</div><div class="line">            &#123;</div><div class="line">                foreach($tags as $tag)</div><div class="line">                &#123;</div><div class="line">                    if(isset($siteTags[$tag]))</div><div class="line">                    &#123;</div><div class="line">                        foreach($siteTags[$tag] as $item)</div><div class="line">                        &#123;</div><div class="line">                            // We call delete directly here because the ID in the cache is already specific for this site</div><div class="line">                            $this-&gt;_memcache-&gt;delete($item);</div><div class="line">                        &#125;</div><div class="line">                        unset($newTags[$tag]);</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">                $this-&gt;_memcache-&gt;set($this-&gt;getTagListId(),$newTags);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        if ($mode==Zend_Cache::CLEANING_MODE_NOT_MATCHING_TAG) &#123;</div><div class="line">            $siteTags = $newTags = $this-&gt;getTags();</div><div class="line">            if(count($siteTags))</div><div class="line">            &#123;</div><div class="line">                foreach($siteTags as $siteTag =&gt; $items)</div><div class="line">                &#123;</div><div class="line">                    if(array_search($siteTag,$tags) === false)</div><div class="line">                    &#123;</div><div class="line">                        foreach($items as $item)</div><div class="line">                        &#123;</div><div class="line">                            $this-&gt;_memcache-&gt;delete($item);</div><div class="line">                        &#125;</div><div class="line">                        unset($newTags[$siteTag]);</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">                $this-&gt;_memcache-&gt;set($this-&gt;getTagListId(),$newTags);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>代码摘自<a href="http://framework.zend.com/issues/browse/ZF-4253" target="_blank" rel="external">zendframework Memcache should support tags</a></p>
+<p>参考</p>
+<ul>
+<li><p><a href="http://iyuanbo.iteye.com/blog/1177919" target="_blank" rel="external">memcached的伪命名空间的一种实现方式</a></p>
+</li>
+<li><p><a href="http://huacnlee.com/blog/group-caches-with-tag-or-namespace/" target="_blank" rel="external">缓存方式扩展，缓存Tag(命名空间)的实现</a></p>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;都说Cache是万金油，哪里不舒服抹哪里。不过要想批量删除缓存可没那么简单，&lt;br&gt;memcached 不支持批量删除缓存键。&lt;/p&gt;
+&lt;h2 id=&quot;遍历方式&quot;&gt;&lt;a href=&quot;#遍历方式&quot; class=&quot;headerlink&quot; title=&quot;遍历方式&quot;&gt;&lt;/a&gt;遍历方
+    
+    </summary>
+    
+    
+      <category term="memcached" scheme="http://jamesban.github.io/tags/memcached/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>实现远程文件打包下载</title>
+    <link href="http://jamesban.github.io/2015/01/10/nginx%E6%B7%BB%E5%8A%A0mod_zip%E5%AE%9E%E7%8E%B0%E8%BF%9C%E7%A8%8B%E6%96%87%E4%BB%B6%E6%89%93%E5%8C%85%E4%B8%8B%E8%BD%BD/"/>
+    <id>http://jamesban.github.io/2015/01/10/nginx添加mod_zip实现远程文件打包下载/</id>
+    <published>2015-01-10T09:00:34.000Z</published>
+    <updated>2017-08-24T13:47:13.550Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li><p>传统实现方法<br>  下载远程文件到本地服务器—&gt;压缩–&gt;下载–&gt;删除。<br>  这样实现 消耗内存、cpu、大量磁盘空间、速度太慢(取决于网络).</p>
+</li>
+<li><p>使用第三方mod_zip 实现打包下载。<br>  内存消耗极低。<br>  通过输出<code>X-Archive-Files</code>和文件列表，自动将远程文件打包下载避免了临时文件的创建和删除。</p>
+</li>
+</ul>
+<h1 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h1><h2 id="下载mod-zip-源文件"><a href="#下载mod-zip-源文件" class="headerlink" title="下载mod_zip 源文件"></a>下载mod_zip 源文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#cd /usr/local/src</div><div class="line">#git clone https://github.com/evanmiller/mod_zip.git</div></pre></td></tr></table></figure>
+<h2 id="tengine安装过程"><a href="#tengine安装过程" class="headerlink" title="tengine安装过程"></a>tengine安装过程</h2><p>使用<a href="http://tengine.taobao.org/document_cn/dso_cn.html" target="_blank" rel="external">dso-tool编译动态模块</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">/usr/local/tengine/bin/dso-tool \</div><div class="line">--add-module=/usr/local/src/mod_zip/ \</div><div class="line">--dst=/usr/local/tengine/modules/</div></pre></td></tr></table></figure></p>
+<p>报错1</p>
+<p><img src="http://i2.tietuku.com/848ad5c3e104817f.png" alt="此处输入图片的描述"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#vi +331 /usr/local/src/mod_zip/ngx_http_zip_file.c</div></pre></td></tr></table></figure></p>
+<p>修改为<br><img src="http://i2.tietuku.com/e7c8982e03665f39.png" alt="此处输入图片的描述"><br>保存<br>重新编译<br>仍然报错 <figure class="highlight plain"><figcaption><span>ngx_http_zip_header_charset_name defined but not use```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">```</div><div class="line">#vi +11 /usr/local/src/mod_zip/ngx_http_zip_file.c</div></pre></td></tr></table></figure></p>
+<p>注释掉<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">//static ngx_str_t ngx_http_zip_header_charset_name = ngx_string(&quot;upstream_http_x_archive_charset&quot;);</div></pre></td></tr></table></figure></p>
+<p>重新编译通过</p>
+<p>查看动态模块是否生成<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#ls /usr/local/tengine/modules/</div></pre></td></tr></table></figure></p>
+<ul>
+<li>修改nginx配置文件测试</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#vi nginx.conf </div><div class="line"></div><div class="line">dso &#123;</div><div class="line">	...</div><div class="line">	load ngx_http_zip_module.so;</div><div class="line">	...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>编写测试代码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">vi zip.php</div><div class="line"></div><div class="line">&lt;?php</div><div class="line">    header(&apos;X-Accel-Chareset: utf-8&apos;);</div><div class="line">    header(&apos;Content-Type: application/octet-stream&apos;);</div><div class="line">    header(&apos;Content-Disposition: attachment; filename=test.zip&apos;);</div><div class="line">    header(&apos;X-Archive-Files: zip&apos;);</div><div class="line">		</div><div class="line">    $crc32 = &quot;-&quot;;</div><div class="line">    //格式 crc32(可以用-忽略)、文件大小、文件uri、文件名</div><div class="line">		</div><div class="line">    printf(&quot;%s %d %s %s\n&quot;, $crc32, 688746, &apos;/lms/M00/00/11/qMB6HVOaakWARZXJAAqCatIt43Y37.pptx&apos;, &apos;1.pptx&apos;);</div><div class="line">    printf(&quot;%s %d %s %s\n&quot;, $crc32, 5236, &apos;/default.conf&apos;, &apos;d.conf&apos;);</div><div class="line">?&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>tips</p>
+<ul>
+<li>文件大小一定要正确 否则压缩打不开 </li>
+<li>文件uri (非url 远程文件需要配置nginx跳转).<br>  例子中的lms(fastdfs)远程文件 需要在nginx内做配置跳转到正确的地址。</li>
+<li>如果不需要断点续传crc32参数可以使用<code>-</code>忽略。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#vi nginx.conf</div><div class="line">server &#123;</div><div class="line">    ... 	</div><div class="line">    location /lms &#123;</div><div class="line">        proxy_pass http://fastdf_server; 	</div><div class="line">    &#125;</div><div class="line">    ... </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="nginx-安装"><a href="#nginx-安装" class="headerlink" title="nginx 安装"></a>nginx 安装</h2><ul>
+<li><p>查看旧的编译参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#/usr/local/nginx/sbin/nginx -V</div></pre></td></tr></table></figure>
+</li>
+<li><p>编译</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#/usr/local/nginx/configure  \</div><div class="line">--prefix=/usr/local/nginx  \</div><div class="line">--user=www --group=www  \</div><div class="line">--add-module=/usr/local/src/mod_zip</div><div class="line"></div><div class="line">#make</div></pre></td></tr></table></figure>
+<p>报错级处理参考tengine内的处理方法.</p>
+<p>#升级nginx<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#cp objs/nginx /usr/local/nginx/sbin</div><div class="line"></div><div class="line">#/usr/local/nginx/sbin/nginx -t</div><div class="line">#/usr/local/nginx/sbin/nginx</div></pre></td></tr></table></figure></p>
+<p>参考文档<br> <a href="http://wiki.nginx.org/NgxZip" target="_blank" rel="external">NgxZip</a><br> <a href="http://www.pchou.info/open-source/2014/07/28/nginx-mod-zip.html" target="_blank" rel="external">利用Nginx第三方模块，实现附件打包下载</a><br> <a href="http://www.v5b7.com/webserver/nginx/nginx_mod_zip.html" target="_blank" rel="external">mod_zip</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;传统实现方法&lt;br&gt;  下载远程文件到本地服务器—&amp;gt;压缩–&amp;gt;下载–&amp;gt;删除。&lt;br&gt;  这样实现 消耗内存、cpu、大量磁盘空间、速度太慢(取决于网络).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;使用第三方mod_zip 实现打包下载。&lt;br&gt; 
+    
+    </summary>
+    
+    
+      <category term="php" scheme="http://jamesban.github.io/tags/php/"/>
+    
+      <category term="nignx" scheme="http://jamesban.github.io/tags/nignx/"/>
+    
+      <category term="mod_zip" scheme="http://jamesban.github.io/tags/mod-zip/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>setfacl命令</title>
+    <link href="http://jamesban.github.io/2014/12/24/setfacl%E5%91%BD%E4%BB%A4/"/>
+    <id>http://jamesban.github.io/2014/12/24/setfacl命令/</id>
+    <published>2014-12-24T15:17:41.000Z</published>
+    <updated>2017-08-24T13:47:13.553Z</updated>
+    
+    <content type="html"><![CDATA[<p>setfacl命令是用来在命令行里设置ACL（访问控制列表）。在命令行里，一系列的命令跟随以一系列的文件名。</p>
+<h2 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">-b,--remove-all：删除所有扩展的acl规则，基本的acl规则(所有者，群组，其他）将被保留。</div><div class="line">-k,--remove-default：删除缺省的acl规则。如果没有缺省规则，将不提示。</div><div class="line">-n，--no-mask：不要重新计算有效权限。setfacl默认会重新计算ACL mask，除非mask被明确的制定。</div><div class="line">--mask：重新计算有效权限，即使ACL mask被明确指定。</div><div class="line">-d，--default：设定默认的acl规则。</div><div class="line">--restore=file：从文件恢复备份的acl规则（这些文件可由getfacl -R产生）。通过这种机制可以恢复整个目录树的acl规则。此参数不能和除--test以外的任何参数一同执行。</div><div class="line">--test：测试模式，不会改变任何文件的acl规则，操作后的acl规格将被列出。</div><div class="line">-R，--recursive：递归的对所有文件及目录进行操作。</div><div class="line">-L，--logical：跟踪符号链接，默认情况下只跟踪符号链接文件，跳过符号链接目录。</div><div class="line">-P，--physical：跳过所有符号链接，包括符号链接文件。</div><div class="line">--version：输出setfacl的版本号并退出。</div><div class="line">--help：输出帮助信息。</div><div class="line">--：标识命令行参数结束，其后的所有参数都将被认为是文件名</div><div class="line">-：如果文件名是-，则setfacl将从标准输入读取文件名。</div></pre></td></tr></table></figure>
+<ul>
+<li>选项<code>-m</code>和<code>-x</code>后边跟以acl规则。多条acl规则以逗号(,)隔开。选项<code>-M</code>和<code>-X</code>用来从文件或标准输入读取acl规则。</li>
+<li>选项<code>--set</code>和<code>--set-file</code>用来设置文件或目录的acl规则，先前的设定将被覆盖。</li>
+<li>选项<code>-m(--modify)</code>和<code>-M(--modify-file)</code>选项修改文件或目录的acl规则。</li>
+<li>选项<code>-x(--remove)</code>和<code>-X(--remove-file)</code>选项删除acl规则。</li>
+</ul>
+<p>当使用-M，-X选项从文件中读取规则时，setfacl接受getfacl命令输出的格式。每行至少一条规则，以#开始的行将被视为注释。</p>
+<p>当在不支持ACLs的文件系统上使用setfacl命令时，setfacl将修改文件权限位。如果acl规则并不完全匹配文件权限位，setfacl将会修改文件权限位使其尽可能的反应acl规则，并会向standard error发送错误消息，以大于0的状态返回。</p>
+<h2 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h2><p>文件的所有者以及有CAP_FOWNER的用户进程可以设置一个文件的acl。（在目前的linux系统上，root用户是唯一有CAP_FOWNER能力的用户）</p>
+<h2 id="ACL规则"><a href="#ACL规则" class="headerlink" title="ACL规则"></a>ACL规则</h2><p>setfacl命令可以识别以下的规则格式：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[d[efault]:] [u[ser]:]uid [:perms]  指定用户的权限，文件所有者的权限（如果uid没有指定）。</div><div class="line">[d[efault]:] g[roup]:gid [:perms]   指定群组的权限，文件所有群组的权限（如果gid未指定）</div><div class="line">[d[efault]:] m[ask][:] [:perms]     有效权限掩码</div><div class="line">[d[efault]:] o[ther] [:perms]       其他的权限</div></pre></td></tr></table></figure>
+<p>恰当的acl规则被用在修改和设定的操作中，对于uid和gid，可以指定一个数字，也可指定一个名字。perms域是一个代表各种权限的字母的组合：读<code>-r</code>写<code>-w</code>执行<code>-x</code>，执行只适合目录和一些可执行的文件。pers域也可设置为八进制格式。</p>
+<h2 id="自动创建的规则"><a href="#自动创建的规则" class="headerlink" title="自动创建的规则"></a>自动创建的规则</h2><p>最初的，文件目录仅包含3个基本的acl规则。为了使规则能正常执行，需要满足以下规则。</p>
+<ul>
+<li>3个基本规则不能被删除。</li>
+<li>任何一条包含指定的用户名或群组名的规则必须包含有效的权限组合。</li>
+<li>任何一条包含缺省规则的规则在使用时，缺省规则必须存在</li>
+</ul>
+<h2 id="ACL的名词定义"><a href="#ACL的名词定义" class="headerlink" title="ACL的名词定义"></a>ACL的名词定义</h2><p>先来看看在ACL里面每一个名词的定义，这些名词我大多从man page上摘下来虽然有些枯燥,但是对于理解下面的内容还是很有帮助的。</p>
+<p>ACL是由一系列的Access Entry所组成的，每一条Access Entry定义了特定的类别可以对文件拥有的操作权限。Access Entry有三个组成部分：Entry tag type, qualifier (optional), permission。</p>
+<p>我们先来看一下最重要的Entry tag type，它有以下几个类型：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">ACL_USER_OBJ：相当于Linux里file_owner的permission</div><div class="line">ACL_USER：定义了额外的用户可以对此文件拥有的permission</div><div class="line">ACL_GROUP_OBJ：相当于Linux里group的permission</div><div class="line">ACL_GROUP：定义了额外的组可以对此文件拥有的permission</div><div class="line">ACL_MASK：定义了ACL_USER, ACL_GROUP_OBJ和ACL_GROUP的最大权限 (这个我下面还会专门讨论)</div><div class="line">ACL_OTHER：相当于Linux里other的permission</div></pre></td></tr></table></figure></p>
+<p>让我们来据个例子说明一下，下面我们就用getfacl命令来查看一个定义好了的ACL文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# getfacl ./test.txt</div><div class="line"><span class="meta">#</span> file: test.txt</div><div class="line"><span class="meta">#</span> owner: root</div><div class="line"><span class="meta">#</span> group: admin</div><div class="line">user::rw-</div><div class="line">user:john:rw-</div><div class="line">group::rw-</div><div class="line">group:dev:r--</div><div class="line">mask::rw- other::r--</div></pre></td></tr></table></figure>
+<p>前面三个以#开头的定义了文件名，file owner和group。这些信息没有太大的作用，接下来我们可以用–omit-header来省略掉。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">user::rw-       定义了ACL_USER_OBJ, 说明file owner拥有read and write permission</div><div class="line">user:john:rw-   定义了ACL_USER,这样用户john就拥有了对文件的读写权限,实现了我们一开始要达到的目的</div><div class="line">group::rw-      定义了ACL_GROUP_OBJ,说明文件的group拥有read and write permission</div><div class="line">group:dev:r--   定义了ACL_GROUP,使得dev组拥有了对文件的read permission</div><div class="line">mask::rw-       定义了ACL_MASK的权限为read and write</div><div class="line">other::r--      定义了ACL_OTHER的权限为read</div></pre></td></tr></table></figure>
+<p>从这里我们就可以看出ACL提供了我们可以定义特定用户和用户组的功能，那么接下来我们就来看一下如何设置一个文件的ACL：</p>
+<h2 id="如何设置ACL文件"><a href="#如何设置ACL文件" class="headerlink" title="如何设置ACL文件"></a>如何设置ACL文件</h2><p>首先我们还是要讲一下设置ACL文件的格式，从上面的例子中我们可以看到每一个Access Entry都是由三个被：号分隔开的字段所组成，第一个就是Entry tag type。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">user   对应了ACL_USER_OBJ和ACL_USER</div><div class="line">group  对应了ACL_GROUP_OBJ和ACL_GROUP</div><div class="line">mask   对应了ACL_MASK</div><div class="line">other  对应了ACL_OTHER</div></pre></td></tr></table></figure>
+<p>第二个字段称之为<code>qualifier</code>，也就是上面例子中的john和dev组，它定义了特定用户和拥护组对于文件的权限。这里我们也可以发现只有user和group才有qualifier，其他的都为空。第三个字段就是我们熟悉的permission了。它和Linux的permission一样定义，这里就不多讲了。</p>
+<p>下面我们就来看一下怎么设置test.txt这个文件的ACL让它来达到我们上面的要求。</p>
+<p>一开始文件没有ACL的额外属性：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# ls -l</div><div class="line">-rw-rw-r-- 1 root admin 0 Jul 3 22:06 test.txt</div><div class="line"></div><div class="line">[root@localhost ~]# getfacl --omit-header ./test.txt</div><div class="line">user::rw- group::rw- other::r--</div></pre></td></tr></table></figure>
+<p>我们先让用户john拥有对test.txt文件的读写权限：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# setfacl -m user:john:rw- ./test.txt</div><div class="line">[root@localhost ~]# getfacl --omit-header ./test.txt</div><div class="line">user::rw-</div><div class="line">user:john:rw-</div><div class="line">group::rw-</div><div class="line">mask::rw-</div><div class="line">other::r--</div></pre></td></tr></table></figure></p>
+<p>这时我们就可以看到john用户在ACL里面已经拥有了对文件的读写权。这个时候如果我们查看一下linux的permission我们还会发现一个不一样的地方。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# ls -l ./test.txt</div><div class="line">-rw-rw-r--+ 1 root admin 0 Jul 3 22:06 ./test.txt</div></pre></td></tr></table></figure></p>
+<p>在文件permission的最后多了一个<code>+</code>号，当任何一个文件拥有了ACL_USER或者ACL_GROUP的值以后我们就可以称它为ACL文件，这个<code>+</code>号就是用来提示我们的。我们还可以发现当一个文件拥有了<code>ACL_USER</code>或者<code>ACL_GROUP</code>的值时<code>ACL_MASK</code>同时也会被定义。</p>
+<p>接下来我们来设置dev组拥有read permission：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# setfacl -m group:dev:r-- ./test.txt</div><div class="line">[root@localhost ~]# getfacl --omit-header ./test.txt</div><div class="line">user::rw-</div><div class="line">user:john:rw-</div><div class="line">group::rw-</div><div class="line">group:dev:r--</div><div class="line">mask::rw-</div><div class="line">other::r--</div></pre></td></tr></table></figure></p>
+<p>到这里就完成了我们上面讲到的要求，是不是很简单呢。</p>
+<h2 id="ACL-MASK和Effective-permission"><a href="#ACL-MASK和Effective-permission" class="headerlink" title="ACL_MASK和Effective permission"></a>ACL_MASK和Effective permission</h2><p>这里需要重点讲一下<code>ACL_MASK</code>，因为这是掌握ACL的另一个关键，在Linux file permission里面大家都知道比如对于<code>rw-rw-r--</code>来说, 当中的那个<code>rw-</code>是指文件组的permission. 但是在ACL里面这种情况只是在<code>ACL_MASK</code>不存在的情况下成立。如果文件有<code>ACL_MASK</code>值，那么当中那个<code>rw-</code>代表的就是mask值而不再是group permission了。</p>
+<p>让我们来看下面这个例子：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# ls -l</div><div class="line">-rwxrw-r-- 1 root admin 0 Jul 3 23:10 test.sh</div></pre></td></tr></table></figure></p>
+<p>这里说明test.sh文件只有file owner: root拥有read, write, execute/search permission。admin组只有read and write permission，现在我们想让用户john也对test.sh具有和root一样的permission。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# setfacl -m user:john:rwx ./test.sh</div><div class="line">[root@localhost ~]# getfacl --omit-header ./test.sh</div><div class="line">user::rwx user:john:rwx</div><div class="line">group::rw-</div><div class="line">mask::rwx</div><div class="line">other::r--</div></pre></td></tr></table></figure></p>
+<p>这里我们看到john已经拥有了rwx的permission，mask值也被设定为rwx，那是因为它规定了ACL_USER，ACL_GROUP和ACL_GROUP_OBJ的最大值，现在我们再来看test.sh的Linux permission，它已经变成了：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# ls -l</div><div class="line">-rwxrwxr--+ 1 root admin 0 Jul 3 23:10 test.sh</div></pre></td></tr></table></figure>
+<p>那么如果现在admin组的用户想要执行test.sh的程序会发生什么情况呢？它会被permission deny。原因在于实际上admin组的用户只有read and write permission，这里当中显示的rwx是ACL_MASK的值而不是group的permission。</p>
+<p>所以从这里我们就可以知道，如果一个文件后面有+标记，我们都需要用getfacl来确认它的permission，以免发生混淆。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# setfacl -m mask::r-- ./test.sh</div><div class="line">[root@localhost ~]# getfacl --omit-header ./test.sh</div><div class="line">user::rwx</div><div class="line">user:john:rwx   #effective:r--</div><div class="line">group::rw-      #effective:r--</div><div class="line">mask::r--</div><div class="line">other::r--</div></pre></td></tr></table></figure>
+<p>这时候我们可以看到<code>ACL_USER</code>和<code>ACL_GROUP_OBJ</code>旁边多了个<code>#effective:r--</code>，这是什么意思呢？让我们再来回顾一下<code>ACL_MASK</code>的定义。它规定了<code>ACL_USER</code>，<code>ACL_GROUP_OBJ</code>和<code>ACL_GROUP</code>的最大权限。那么在我们这个例子中他们的最大权限也就是read only。虽然我们这里给<code>ACL_USER</code>和<code>ACL_GROUP_OBJ</code>设置了其他权限，但是他们真正有效果的只有read权限。</p>
+<p>这时我们再来查看test.sh的Linux file permission时它的group permission也会显示其mask的值(i.e. r–)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# ls -l</div><div class="line">-rwxr--r--+ 1 root admin 0 Jul 3 23:10 test.sh</div></pre></td></tr></table></figure>
+<h2 id="Default-ACL"><a href="#Default-ACL" class="headerlink" title="Default ACL"></a>Default ACL</h2><p>上面我们所有讲的都是Access ACL，也就是对文件而言。下面我简单讲一下Default ACL。Default ACL是指对于一个目录进行Default ACL设置，并且在此目录下建立的文件都将继承此目录的ACL。</p>
+<p>同样我们来做一个试验说明，比如现在root用户建立了一个dir目录：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# mkdir dir</div></pre></td></tr></table></figure>
+<p>他希望所有在此目录下建立的文件都可以被john用户所访问，那么我们就应该对dir目录设置Default ACL。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# setfacl -d -m user:john:rw ./dir</div><div class="line">[root@localhost ~]# getfacl --omit-header ./dir</div><div class="line">user::rwx</div><div class="line">group::rwx</div><div class="line">other::r-x</div><div class="line">default:user::rwx</div><div class="line">default:user:john:rwx</div><div class="line">default:group::rwx</div><div class="line">default:mask::rwx</div><div class="line">default: other::r-x</div></pre></td></tr></table></figure></p>
+<p>这里我们可以看到ACL定义了default选项，john用户拥有了default的read, write, excute/search permission。所有没有定义的default都将从file permission里copy过来，现在root用户在dir下建立一个test.txt文件。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# touch ./dir/test.txt</div><div class="line">[root@localhost ~]# ls -l ./dir/test.txt</div><div class="line">-rw-rw-r--+ 1 root root 0 Jul 3 23:46 ./dir/test.txt</div><div class="line"></div><div class="line">[root@localhost ~]# getfacl --omit-header ./dir/test.txt</div><div class="line">user::rw-</div><div class="line">user:john:rw-</div><div class="line">group::rwx #effective:rw-</div><div class="line">mask::rw-</div><div class="line">other::r--</div></pre></td></tr></table></figure>
+<p>这里我们看到在dir下建立的文件john用户自动就有了read and write permission，</p>
+<h2 id="ACL相关命令"><a href="#ACL相关命令" class="headerlink" title="ACL相关命令"></a>ACL相关命令</h2><p>前面的例子中我们都注意到了getfacl命令是用来读取文件的ACL，setfacl是用来设定文件的Acess ACL。这里还有一个chacl是用来改变文件和目录的Access ACL and Default ACL，它的具体参数大家可以去看man page。我只想提及一下chacl -B。它可以彻底删除文件或者目录的ACL属性(包括Default ACL)，比如你即使用了setfacl -x删除了所有文件的ACL属性，那个+号还是会出现在文件的末尾，所以正确的删除方法应该是用chacl -B用cp来复制文件的时候我们现在可以加上-p选项。这样在拷贝文件的时候也将拷贝文件的ACL属性，对于不能拷贝的ACL属性将给出警告。</p>
+<p>mv命令将会默认地移动文件的ACL属性，同样如果操作不允许的情况下会给出警告。</p>
+<h2 id="需要注意的几点"><a href="#需要注意的几点" class="headerlink" title="需要注意的几点"></a>需要注意的几点</h2><p>如果你的文件系统不支持ACL的话，你也许需要重新mount你的file system：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mount -o remount, acl [mount point]</div></pre></td></tr></table></figure>
+<p>如果用chmod命令改变Linux file permission的时候相应的ACL值也会改变，反之改变ACL的值，相应的file permission也会改变。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;setfacl命令是用来在命令行里设置ACL（访问控制列表）。在命令行里，一系列的命令跟随以一系列的文件名。&lt;/p&gt;
+&lt;h2 id=&quot;选项&quot;&gt;&lt;a href=&quot;#选项&quot; class=&quot;headerlink&quot; title=&quot;选项&quot;&gt;&lt;/a&gt;选项&lt;/h2&gt;&lt;figure cla
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="http://jamesban.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>(转)CentOS普通用户增加sudo权限的简单配置</title>
+    <link href="http://jamesban.github.io/2014/12/24/(%E8%BD%AC)CentOS%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7%E5%A2%9E%E5%8A%A0sudo%E6%9D%83%E9%99%90%E7%9A%84%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE/"/>
+    <id>http://jamesban.github.io/2014/12/24/(转)CentOS普通用户增加sudo权限的简单配置/</id>
+    <published>2014-12-24T15:13:27.000Z</published>
+    <updated>2017-08-24T13:47:13.524Z</updated>
+    
+    <content type="html"><![CDATA[<p>查看sudo是否安装:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span>rpm -qa|grep sudo</div></pre></td></tr></table></figure></p>
+<p>修改/etc/sudoers文件，修改命令必须为visudo才行<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span>visudo -f /etc/sudoers</div></pre></td></tr></table></figure></p>
+<p>在root ALL=(ALL) ALL 之后增加<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">tom ALL=(ALL) ALL</div><div class="line">Defaults:tom timestamp_timeout=-1,runaspw</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">增加普通账户tom的sudo权限</div><div class="line">timestamp_timeout=-1 只需验证一次密码，以后系统自动记忆</div><div class="line">runaspw  需要root密码，如果不加默认是要输入普通账户的密码</div></pre></td></tr></table></figure>
+<p>修改普通用户的.bash_profile文件<br>vi /home/tom/.bash_profile<br>在PATH变量中增加<br>/sbin:/usr/sbin:/usr/local/sbin:/usr/kerberos/sbin</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> cat .bash_profile</div><div class="line"><span class="meta">#</span> .bash_profile</div><div class="line"><span class="meta">#</span> Get the aliases and functions</div><div class="line">if [ -f ~/.bashrc ]; then</div><div class="line">        . ~/.bashrc</div><div class="line">fi</div><div class="line"><span class="meta">#</span> User specific environment and startup programs</div><div class="line">PATH=$PATH:$HOME/bin:/sbin:/usr/sbin:/usr/local/sbin:/usr/kerberos/sbin</div></pre></td></tr></table></figure>
+<p>原文地址：<a href="http://www.chinasb.org/archives/2011/07/2919.shtml" target="_blank" rel="external">CentOS普通用户增加sudo权限的简单配置</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;查看sudo是否安装:&lt;br&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;p
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="http://jamesban.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mongodb聚合查询</title>
+    <link href="http://jamesban.github.io/2014/12/17/mongodb%E8%81%9A%E5%90%88%E6%9F%A5%E8%AF%A2/"/>
+    <id>http://jamesban.github.io/2014/12/17/mongodb聚合查询/</id>
+    <published>2014-12-17T11:21:11.000Z</published>
+    <updated>2017-08-24T13:47:13.548Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="map-reduce"><a href="#map-reduce" class="headerlink" title="map-reduce"></a>map-reduce</h2><h2 id="aggregate"><a href="#aggregate" class="headerlink" title="aggregate"></a>aggregate</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">todo</div></pre></td></tr></table></figure>
+<p>参考</p>
+<ul>
+<li><a href="http://www.cnblogs.com/TextEditor/archive/2013/01/20/2857999.html" target="_blank" rel="external">[教程]MongoDB 从入门到进阶 （aggregation数据库状态）</a></li>
+<li><a href="http://www.w3cschool.cc/mongodb/mongodb-aggregate.html" target="_blank" rel="external">MongoDB 聚合</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;map-reduce&quot;&gt;&lt;a href=&quot;#map-reduce&quot; class=&quot;headerlink&quot; title=&quot;map-reduce&quot;&gt;&lt;/a&gt;map-reduce&lt;/h2&gt;&lt;h2 id=&quot;aggregate&quot;&gt;&lt;a href=&quot;#aggregate&quot; c
+    
+    </summary>
+    
+    
+      <category term="mongodb" scheme="http://jamesban.github.io/tags/mongodb/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mongodb数组查询</title>
+    <link href="http://jamesban.github.io/2014/12/17/mongodb%E6%95%B0%E7%BB%84%E6%9F%A5%E8%AF%A2/"/>
+    <id>http://jamesban.github.io/2014/12/17/mongodb数组查询/</id>
+    <published>2014-12-17T11:06:15.000Z</published>
+    <updated>2017-08-24T13:47:13.547Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>插入测试数据</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span>db.food.insert(&#123;"_id":1, "fruit":["apple","banana","peach"]&#125;)</div><div class="line"><span class="meta">&gt;</span>db.food.insert(&#123;"_id":2, "fruit":["apple","kumquat","orange"]&#125;)</div><div class="line"><span class="meta">&gt;</span>db.food.insert(&#123;"_id":3, "fruit":["cherry","banana","apple"]&#125;)</div></pre></td></tr></table></figure>
+<ul>
+<li>$all(数组元素必须包含)</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span>db.food.find(&#123;"fruit":&#123;$all:["apple", "banana"]&#125;&#125;) // 返回_id 为1,3的记录</div></pre></td></tr></table></figure>
+<ul>
+<li>$in (数组元素为其中任意一个)</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span>db.food.find(&#123;"fruit":&#123;$in:["apple,", "banana"]&#125;&#125;) // 1,2,3</div></pre></td></tr></table></figure>
+<p>单个$in 可以省略$in操作符 一下两条查询结果相同<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;db.food.find(&#123;&quot;fruit&quot;:&quot;apple&quot;&#125;); //1, 2,3</div><div class="line">&gt;db.food.find(&#123;&quot;fruit&quot;:&#123;$in:[&quot;apple&quot;]&#125;&#125;);//1,2,3</div></pre></td></tr></table></figure></p>
+<ul>
+<li>$size (数组长度)<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span>db.food.find(&#123;"fruit":&#123;$size:3&#125;&#125;) // 1, 2,3</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>也可是使用 $where 来代替<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt;db.food.find(&#123;$where:&quot;this.fruit.length == 3&quot;&#125;); // 1, 2, 3</div></pre></td></tr></table></figure></p>
+<ul>
+<li><p>$slice(对数组进行分片)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt;db.food.find(&#123;&#125;, &#123;&quot;fruit&quot;:&#123;$slice:[1,1]&#125;&#125;) //只返回数组第一个元素</div></pre></td></tr></table></figure>
+</li>
+<li><p>查询第一个元素为apple的记录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span>db.food.find(&#123;"fruit.0": "apple"&#125;);</div><div class="line"><span class="meta">&gt;</span>db.food.find(&#123;$where:"this.fruit[0] == 'apple'"&#125;);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;插入测试数据&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/
+    
+    </summary>
+    
+    
+      <category term="mongodb" scheme="http://jamesban.github.io/tags/mongodb/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nginx二级域名匹配根目录下的子文件夹</title>
+    <link href="http://jamesban.github.io/2014/12/12/nginx%E4%BA%8C%E7%BA%A7%E5%9F%9F%E5%90%8D%E5%8C%B9%E9%85%8D%E6%A0%B9%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84%E5%AD%90%E6%96%87%E4%BB%B6%E5%A4%B9/"/>
+    <id>http://jamesban.github.io/2014/12/12/nginx二级域名匹配根目录下的子文件夹/</id>
+    <published>2014-12-12T13:26:33.000Z</published>
+    <updated>2017-08-24T13:47:13.549Z</updated>
+    
+    <content type="html"><![CDATA[<p>使用泛域名映射子目录</p>
+<p>配置文件如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">server</div><div class="line">&#123;</div><div class="line"></div><div class="line">        listen 80;</div><div class="line">        server_name *.test.com;</div><div class="line"></div><div class="line">        if ( $host ~* (.*)\.test\.com) &#123;</div><div class="line">             set $domain $1;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        root /usr/share/nginx/$domain;</div><div class="line">        index index.html index.php;</div><div class="line"></div><div class="line">        include php.conf;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>配置域名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#vim /etc/hosts</div><div class="line">127.0.0.1   tom.test.com</div><div class="line">127.0.0.1   jake.test.com</div></pre></td></tr></table></figure>
+<p>创建测试文件<br>在相应目录内新建测试文件即可看到效果</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;使用泛域名映射子目录&lt;/p&gt;
+&lt;p&gt;配置文件如下&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line
+    
+    </summary>
+    
+    
+      <category term="nginx" scheme="http://jamesban.github.io/tags/nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>pack函数的简单使用</title>
+    <link href="http://jamesban.github.io/2014/12/12/pack%E5%87%BD%E6%95%B0%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"/>
+    <id>http://jamesban.github.io/2014/12/12/pack函数的简单使用/</id>
+    <published>2014-12-12T13:24:42.000Z</published>
+    <updated>2017-08-24T13:47:13.551Z</updated>
+    
+    <content type="html"><![CDATA[<p>pack函数主要作用是把数据压缩为二进制字符串。qq纯净ip数据库数据存储就是使用pack进行封装。本文为pack的简单应用</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Db</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> $file = <span class="keyword">null</span>;</div><div class="line">	</div><div class="line">	<span class="keyword">private</span> $struct = <span class="keyword">array</span>(</div><div class="line">		<span class="string">'name'</span> =&gt; <span class="string">'a8'</span>,</div><div class="line">		<span class="string">'age'</span> =&gt; <span class="string">'S'</span>,</div><div class="line">		<span class="string">'email'</span> =&gt; <span class="string">'a30'</span></div><div class="line">	);</div><div class="line">	</div><div class="line">	<span class="keyword">private</span> $length = <span class="number">40</span>;</div><div class="line">	</div><div class="line">	<span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">init</span><span class="params">()</span></span></div><div class="line"><span class="function">	</span>&#123;</div><div class="line">		$file = fopen(<span class="string">'./test.db'</span>, <span class="string">'ab+'</span>);</div><div class="line">		<span class="keyword">$this</span>-&gt;file = $file;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span></span></div><div class="line"><span class="function">	</span>&#123;</div><div class="line">		<span class="keyword">if</span>(<span class="keyword">$this</span>-&gt;file === <span class="keyword">null</span>) &#123;</div><div class="line">			<span class="keyword">$this</span>-&gt;init();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">add</span><span class="params">($data)</span> </span></div><div class="line"><span class="function">	</span>&#123;</div><div class="line">		$binary = <span class="string">''</span>;</div><div class="line">		<span class="keyword">foreach</span>($data <span class="keyword">as</span> $k =&gt; $row) &#123;</div><div class="line">			$struct = <span class="keyword">$this</span>-&gt;struct[$k];</div><div class="line">			$binary .= pack($struct, $row);</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		fwrite(<span class="keyword">$this</span>-&gt;file, $binary);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	</div><div class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">read</span><span class="params">($id = <span class="number">1</span>)</span> </span></div><div class="line"><span class="function">	</span>&#123;</div><div class="line">		rewind(<span class="keyword">$this</span>-&gt;file);</div><div class="line">		$data = <span class="keyword">array</span>();</div><div class="line">		</div><div class="line">		<span class="keyword">if</span>(!fseek(<span class="keyword">$this</span>-&gt;file, <span class="keyword">$this</span>-&gt;length * ($id <span class="number">-1</span>))) &#123;</div><div class="line">			$data[<span class="string">'name'</span>] = unpack(<span class="string">'a8'</span>, fread(<span class="keyword">$this</span>-&gt;file, <span class="number">8</span>))[<span class="number">1</span>];</div><div class="line">			$data[<span class="string">'age'</span>] = unpack(<span class="string">'S'</span>, fread(<span class="keyword">$this</span>-&gt;file, <span class="number">2</span>))[<span class="number">1</span>];</div><div class="line">			$data[<span class="string">'email'</span>] = unpack(<span class="string">'a30'</span>, fread(<span class="keyword">$this</span>-&gt;file, <span class="number">30</span>))[<span class="number">1</span>];</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		<span class="keyword">return</span> $data;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span><span class="params">()</span></span></div><div class="line"><span class="function">	</span>&#123;</div><div class="line">		fclose(<span class="keyword">$this</span>-&gt;file);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>存储数据</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$data = <span class="keyword">array</span>(</div><div class="line">	<span class="string">'name'</span> =&gt; <span class="string">'lisi'</span> . time(),</div><div class="line">	<span class="string">'age'</span> =&gt; <span class="number">100</span>,</div><div class="line">	<span class="string">'email'</span> =&gt; <span class="string">'jjjjj@qq.com'</span></div><div class="line">);</div><div class="line">$db = <span class="keyword">new</span> Db();</div><div class="line">$db-&gt;add($data);</div></pre></td></tr></table></figure>
+<p>读取数据</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$data = $db-&gt;read(<span class="number">1</span>);</div><div class="line">print_r($data);</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">Array</span></div><div class="line"><span class="comment">(</span></div><div class="line"><span class="comment">    [name] =&gt; lisi1418</span></div><div class="line"><span class="comment">    [age] =&gt; 100</span></div><div class="line"><span class="comment">    [email] =&gt; jjjjj<span class="doctag">@qq</span>.com</span></div><div class="line"><span class="comment">)</span></div><div class="line"><span class="comment">*/</span></div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;pack函数主要作用是把数据压缩为二进制字符串。qq纯净ip数据库数据存储就是使用pack进行封装。本文为pack的简单应用&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div 
+    
+    </summary>
+    
+    
+      <category term="php" scheme="http://jamesban.github.io/tags/php/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>不使用strrev和数组函数实现字符串反转</title>
+    <link href="http://jamesban.github.io/2014/12/09/%E4%B8%8D%E4%BD%BF%E7%94%A8strrev%E5%92%8C%E6%95%B0%E7%BB%84%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%8D%E8%BD%AC/"/>
+    <id>http://jamesban.github.io/2014/12/09/不使用strrev和数组函数实现字符串反转/</id>
+    <published>2014-12-09T11:04:19.000Z</published>
+    <updated>2017-08-24T13:47:13.555Z</updated>
+    
+    <content type="html"><![CDATA[<p>反转一个字符串很容易使用<a href="http://php.net/manual/en/function.strrev.php" target="_blank" rel="external">strrev</a>函数即可,假如没有strrev函数也没有数组函数怎么显示字符串反转。</p>
+<ul>
+<li><p>背景知识</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">string 中的字符可以通过一个从 0 开始的下标，用类似 array 结构中的方括号包含对应的数字来访问和修改，比如 $str[42]。</div><div class="line">可以把 string 当成字符组成的 array。函数 substr() 和 substr_replace() 可用于操作多于一个字符的情况。 -- php手册</div></pre></td></tr></table></figure>
+</li>
+<li><p>代码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">reverseString</span><span class="params">($string)</span> </span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	$length = strlen($string);</div><div class="line">	$reverseString = <span class="string">''</span>;</div><div class="line">	</div><div class="line">	<span class="keyword">while</span>($length--) &#123;</div><div class="line">		$reverseString .= $string[$length];</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="keyword">return</span> $reverseString;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">$str = <span class="string">"Hello world"</span>;</div><div class="line"><span class="keyword">echo</span> reverseString($str); <span class="comment">//dlrow olleH</span></div><div class="line">```php</div><div class="line"></div><div class="line">使用str_split 函数也可以。</div><div class="line">```php</div><div class="line">$array = str_split($str);</div><div class="line">print_r($array);</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"></span></div><div class="line"><span class="comment">Array</span></div><div class="line"><span class="comment">(</span></div><div class="line"><span class="comment">    [0] =&gt; H</span></div><div class="line"><span class="comment">    [1] =&gt; e</span></div><div class="line"><span class="comment">    [2] =&gt; l</span></div><div class="line"><span class="comment">    [3] =&gt; l</span></div><div class="line"><span class="comment">    [4] =&gt; o</span></div><div class="line"><span class="comment">    [5] =&gt;  </span></div><div class="line"><span class="comment">    [6] =&gt; w</span></div><div class="line"><span class="comment">    [7] =&gt; o</span></div><div class="line"><span class="comment">    [8] =&gt; r</span></div><div class="line"><span class="comment">    [9] =&gt; l</span></div><div class="line"><span class="comment">    [10] =&gt; d</span></div><div class="line"><span class="comment">)</span></div><div class="line"><span class="comment">*/</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>参考 <a href="http://haolloyin.blog.51cto.com/1177454/560597" target="_blank" rel="external">字符串反转，神奇的算法-读《编程珠玑（第二版）》</a> 有更高效的写法。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ReverseString</span><span class="params">(&amp;$s, $from, $to)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">while</span> ($from &lt; $to)</div><div class="line">    &#123;</div><div class="line">        $t = $s[$from];</div><div class="line">        $s[$from++] = $s[$to];</div><div class="line">        $s[$to--] = $t;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">LeftRotateString</span><span class="params">($s, $n, $m)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    $m %= $n;               <span class="comment">//若要左移动大于n位，那么和%n 是等价的  </span></div><div class="line">    ReverseString($s, <span class="number">0</span>, $m - <span class="number">1</span>); <span class="comment">//反转[0..m - 1]，套用到上面举的例子中，就是X-&gt;X^T，即 abc-&gt;cba</span></div><div class="line"></div><div class="line">    ReverseString($s, $m, $n - <span class="number">1</span>); <span class="comment">//反转[m..n - 1]，例如Y-&gt;Y^T，即 def-&gt;fed</span></div><div class="line"></div><div class="line">    ReverseString($s, <span class="number">0</span>, $n - <span class="number">1</span>); <span class="comment">//反转[0..n - 1]，即如整个反转，(X^TY^T)^T=YX，即 cbafed-&gt;defabc。</span></div><div class="line"></div><div class="line">    <span class="keyword">return</span> $s;</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">echo</span> LeftRotateString(<span class="string">'abcdef'</span>, <span class="number">6</span>, <span class="number">3</span>); <span class="comment">//defabc</span></div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;反转一个字符串很容易使用&lt;a href=&quot;http://php.net/manual/en/function.strrev.php&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;strrev&lt;/a&gt;函数即可,假如没有strrev函数也没有数组函数怎么显示字
+    
+    </summary>
+    
+    
+      <category term="php" scheme="http://jamesban.github.io/tags/php/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>周末周边骑行---甘岭水库</title>
+    <link href="http://jamesban.github.io/2014/12/07/%E5%91%A8%E6%9C%AB%E5%91%A8%E8%BE%B9%E9%AA%91%E8%A1%8C-%E7%94%98%E5%B2%AD%E6%B0%B4%E5%BA%93/"/>
+    <id>http://jamesban.github.io/2014/12/07/周末周边骑行-甘岭水库/</id>
+    <published>2014-12-07T09:47:18.000Z</published>
+    <updated>2017-08-24T13:47:13.556Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>某房地产</li>
+</ul>
+<p><img src="http://md-pic.qiniudn.com/IMG_0477.JPG" alt=""></p>
+<ul>
+<li>入口私家车很多</li>
+</ul>
+<p><img src="http://md-pic.qiniudn.com/IMG_0482.JPG" alt=""></p>
+<p><img src="http://md-pic.qiniudn.com/IMG_0483.JPG" alt=""></p>
+<p><img src="http://md-pic.qiniudn.com/IMG_0484.JPG" alt=""></p>
+<p><img src="http://md-pic.qiniudn.com/IMG_0485.JPG" alt=""></p>
+<p><img src="http://md-pic.qiniudn.com/IMG_0498.JPG" alt=""></p>
+<p><img src="http://md-pic.qiniudn.com/IMG_0492.JPG" alt=""></p>
+<ul>
+<li>冬泳</li>
+</ul>
+<p><img src="http://md-pic.qiniudn.com/IMG_0486.JPG" alt=""></p>
+<ul>
+<li>山路</li>
+</ul>
+<p><img src="http://md-pic.qiniudn.com/IMG_0493.JPG" alt=""></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;某房地产&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;http://md-pic.qiniudn.com/IMG_0477.JPG&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;入口私家车很多&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;http://md
+    
+    </summary>
+    
+    
+      <category term="骑行" scheme="http://jamesban.github.io/tags/%E9%AA%91%E8%A1%8C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>php获取视频文件编码信息</title>
+    <link href="http://jamesban.github.io/2014/12/05/php%E8%8E%B7%E5%8F%96%E8%A7%86%E9%A2%91%E6%96%87%E4%BB%B6%E7%BC%96%E7%A0%81%E4%BF%A1%E6%81%AF/"/>
+    <id>http://jamesban.github.io/2014/12/05/php获取视频文件编码信息/</id>
+    <published>2014-12-05T13:57:58.000Z</published>
+    <updated>2017-08-24T13:47:13.552Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="使用ffmpeg"><a href="#使用ffmpeg" class="headerlink" title="使用ffmpeg"></a>使用ffmpeg</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">FFmpeg是一个自由软件，可以运行音频和视频多种格式的录影、转换、流功能[1]，</div><div class="line">包含了libavcodec ─这是一个用于多个项目中音频和视频的解码器库，以及libavformat——一个音频与视频格式转换库。</div></pre></td></tr></table></figure>
+<ul>
+<li>安装ffmpeg</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span>rpm -ivh http://apt.sw.be/redhat/el6/en/i386/rpmforge/RPMS/rpmforge-release-0.5.3-1.el6.rf.i686.rpm</div><div class="line"></div><div class="line"><span class="meta">#</span>yum install ffmpeg ffmpeg-devel</div><div class="line"></div><div class="line"><span class="meta">#</span>ffmpeg -v</div><div class="line">FFmpeg version 0.6.5, Copyright (c) 2000-2010 the FFmpeg developers</div></pre></td></tr></table></figure>
+<ul>
+<li><p>使用命令行获取文件信息</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> ffmpeg -i 庞麦郎_-_我的滑板鞋.mp4</div><div class="line">Input #0, mov,mp4,m4a,3gp,3g2,mj2, from '庞麦郎_-_我的滑板鞋.mp4':</div><div class="line">  Metadata:</div><div class="line">    major_brand     : isom</div><div class="line">    minor_version   : 512</div><div class="line">    compatible_brands: isomiso2avc1mp41</div><div class="line">    encoder         : Lavf54.6.100</div><div class="line">  Duration: 00:03:36.48, start: 0.000000, bitrate: 2778 kb/s</div><div class="line">    Stream #0.0(und): Video: h264, yuv420p, 1920x1080 [PAR 1:1 DAR 16:9], 2674 kb/s, 25 fps, 25 tbr, 25025 tbn, 50 tbc</div><div class="line">    Stream #0.1(und): Audio: aac, 44100 Hz, stereo, s16, 97 kb/s</div><div class="line">At least one output file must be specified</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用正则提取需要的信息</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getVideoFormat</span><span class="params">($file)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    $ffmpeg = <span class="string">"/usr/bin/ffmpeg"</span>;</div><div class="line"></div><div class="line">    ob_start();</div><div class="line">    passthru(sprintf($ffmpeg.<span class="string">' -i "%s" 2&gt;&amp;1'</span>, $file));</div><div class="line">    $info = ob_get_contents();</div><div class="line">    ob_end_clean();</div><div class="line">    preg_match(<span class="string">'/Video:\s(?&lt;format&gt;.*?),/'</span>, $info, $match);</div><div class="line">    <span class="keyword">return</span> $match;</div><div class="line">&#125;</div><div class="line"></div><div class="line">$file = <span class="keyword">__DIR__</span> . <span class="string">'/庞麦郎_-_我的滑板鞋.mp4'</span>;</div><div class="line">var_dump(getVideoFormat($file));</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">array(3) &#123;</span></div><div class="line"><span class="comment">  [0]=&gt;</span></div><div class="line"><span class="comment">  string(12) "Video: h264,"</span></div><div class="line"><span class="comment">  ["format"]=&gt;</span></div><div class="line"><span class="comment">  string(4) "h264"</span></div><div class="line"><span class="comment">  [1]=&gt;</span></div><div class="line"><span class="comment">  string(4) "h264"</span></div><div class="line"><span class="comment">&#125;</span></div><div class="line"><span class="comment">*/</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="使用getID3类库"><a href="#使用getID3类库" class="headerlink" title="使用getID3类库"></a>使用<a href="http://getid3.sourceforge.net/" target="_blank" rel="external">getID3</a>类库</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="keyword">require_once</span>(<span class="string">'../getid3/getid3.php'</span>);</div><div class="line"></div><div class="line"><span class="comment">// Initialize getID3 engine</span></div><div class="line">$getID3 = <span class="keyword">new</span> getID3;</div><div class="line"></div><div class="line">$filename =  <span class="keyword">__DIR__</span> .<span class="string">'/../庞麦郎_-_我的滑板鞋.mp4'</span>;</div><div class="line"><span class="comment">// Analyze file and store returned data in $ThisFileInfo</span></div><div class="line">$ThisFileInfo = $getID3-&gt;analyze($filename);</div><div class="line">print_r($ThisFileInfo[<span class="string">'video'</span>]);</div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">Array</span></div><div class="line"><span class="comment">(</span></div><div class="line"><span class="comment">    [dataformat] =&gt; quicktime</span></div><div class="line"><span class="comment">    [resolution_x] =&gt; 1920</span></div><div class="line"><span class="comment">    [resolution_y] =&gt; 1080</span></div><div class="line"><span class="comment">    [fourcc] =&gt; avc1</span></div><div class="line"><span class="comment">    [frame_rate] =&gt; 25</span></div><div class="line"><span class="comment">)</span></div><div class="line"><span class="comment">*/</span></div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;使用ffmpeg&quot;&gt;&lt;a href=&quot;#使用ffmpeg&quot; class=&quot;headerlink&quot; title=&quot;使用ffmpeg&quot;&gt;&lt;/a&gt;使用ffmpeg&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td cl
+    
+    </summary>
+    
+    
+      <category term="php" scheme="http://jamesban.github.io/tags/php/"/>
+    
+      <category term="ffmpeg" scheme="http://jamesban.github.io/tags/ffmpeg/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DateTime类的常见用法</title>
+    <link href="http://jamesban.github.io/2014/12/04/DateTime%E7%B1%BB%E7%9A%84%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95/"/>
+    <id>http://jamesban.github.io/2014/12/04/DateTime类的常见用法/</id>
+    <published>2014-12-04T11:36:11.000Z</published>
+    <updated>2017-08-24T13:47:13.525Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>初始化</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//默认为当前时间</span></div><div class="line">$tz = <span class="keyword">new</span> DateTimezone(<span class="string">'Asia/Shanghai'</span>);</div><div class="line"><span class="keyword">echo</span> (<span class="keyword">new</span> DateTime(<span class="string">'now'</span>, $tz))-&gt;format(<span class="string">'Y-m-d H:i:s'</span>); <span class="comment">//2014-12-04 12:04:55</span></div><div class="line">$d = <span class="keyword">new</span> DateTime(<span class="string">'+1 day'</span>, $tz); <span class="comment">//2014-12-05 12:04:55</span></div></pre></td></tr></table></figure>
+<ul>
+<li><p>设置时区</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$d = <span class="keyword">new</span> DateTime(<span class="keyword">null</span>, <span class="keyword">new</span> DateTimezone(<span class="string">'Asia/Shanghai'</span>));</div><div class="line">$d-&gt;setTimezone(<span class="string">'Asia/Shanghai'</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p>设置/获取时间戳</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">echo</span> $d-&gt;getTimestamp();  <span class="comment">//1417664087</span></div><div class="line"><span class="keyword">echo</span> $d-&gt;setTimestamp(<span class="number">1417664087</span>)-&gt;format(<span class="string">'Y-m-d H:i:s'</span>);  <span class="comment">//2014-12-04 11:34:47</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>修改时间</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//明天当前时间 (使用关键字day、week、month year 进行修改)</span></div><div class="line">使用modify</div><div class="line"><span class="keyword">echo</span> $d-&gt;modify(<span class="string">'+1 day'</span>)-&gt;setTime(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>)-&gt;format(<span class="string">'Y-m-d H:i:s'</span>);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>或者使用 sub、add<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">echo</span> $d-&gt;sub(<span class="keyword">new</span> DateInterval(<span class="string">'P1D'</span>))-&gt;format(<span class="string">'Y-m-d H:i:s'</span>);</div><div class="line"><span class="keyword">echo</span> $d-&gt;add(<span class="keyword">new</span> DateInterval(<span class="string">'P1D'</span>))-&gt;format(<span class="string">'Y-m-d H:i:s'</span>);</div></pre></td></tr></table></figure></p>
+<ul>
+<li><p>比较日期大小 </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$t = <span class="keyword">new</span> DateTimezone(<span class="string">'Asia/Shanghai'</span>);</div><div class="line">$d1 = <span class="keyword">new</span> DateTime(<span class="string">'2014-12-01'</span>, $t);</div><div class="line">$d2 = <span class="keyword">new</span> DateTime(<span class="string">'2014-12-02'</span>, $t);</div><div class="line"></div><div class="line"><span class="keyword">echo</span> $d1 &gt; $d2 ? <span class="string">'d1 bigger than d2'</span> : <span class="string">'d1 less than d2'</span>;</div></pre></td></tr></table></figure>
+</li>
+<li><p>获取日期间的差异</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">$diff = $d1-&gt;diff($d2);</div><div class="line"></div><div class="line">print_r($diff);</div><div class="line"></div><div class="line">DateInterval Object</div><div class="line">(</div><div class="line">    [y] =&gt; <span class="number">0</span></div><div class="line">    [m] =&gt; <span class="number">0</span></div><div class="line">    [d] =&gt; <span class="number">1</span></div><div class="line">    [h] =&gt; <span class="number">0</span></div><div class="line">    [i] =&gt; <span class="number">0</span></div><div class="line">    [s] =&gt; <span class="number">0</span></div><div class="line">    [weekday] =&gt; <span class="number">0</span></div><div class="line">    [weekday_behavior] =&gt; <span class="number">0</span></div><div class="line">    [first_last_day_of] =&gt; <span class="number">0</span></div><div class="line">    [invert] =&gt; <span class="number">0</span></div><div class="line">    [days] =&gt; <span class="number">1</span></div><div class="line">    [special_type] =&gt; <span class="number">0</span></div><div class="line">    [special_amount] =&gt; <span class="number">0</span></div><div class="line">    [have_weekday_relative] =&gt; <span class="number">0</span></div><div class="line">    [have_special_relative] =&gt; <span class="number">0</span></div><div class="line">)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;初始化&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;
+    
+    </summary>
+    
+    
+      <category term="date" scheme="http://jamesban.github.io/tags/date/"/>
+    
+      <category term="php" scheme="http://jamesban.github.io/tags/php/"/>
+    
+  </entry>
+  
+</feed>
