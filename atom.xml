@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jamesban.github.io/"/>
-  <updated>2017-08-24T14:57:56.429Z</updated>
+  <updated>2017-08-24T15:03:26.804Z</updated>
   <id>http://jamesban.github.io/</id>
   
   <author>
@@ -19,8 +19,8 @@
     <title>修复yum</title>
     <link href="http://jamesban.github.io/2017/08/17/%E4%BF%AE%E5%A4%8Dyum/"/>
     <id>http://jamesban.github.io/2017/08/17/修复yum/</id>
-    <published>2017-08-16T16:00:00.000Z</published>
-    <updated>2017-08-24T14:57:56.429Z</updated>
+    <published>2017-08-17T12:46:27.000Z</published>
+    <updated>2017-08-24T15:03:26.804Z</updated>
     
     <content type="html"><![CDATA[<p>手欠在服务器上卸载了python，结果悲剧了。yum直接跪了。（yum是python编写的工具）</p>
 <p>网站搜索一下，真有和我一样手欠的。记录下修复方法。</p>
@@ -146,7 +146,7 @@ engine.runAndWait()
     <link href="http://jamesban.github.io/2015/03/23/mysql%E5%A4%9A%E5%80%BC%E6%9F%A5%E8%AF%A2/"/>
     <id>http://jamesban.github.io/2015/03/23/mysql多值查询/</id>
     <published>2015-03-23T11:28:06.000Z</published>
-    <updated>2017-08-24T13:47:13.549Z</updated>
+    <updated>2017-08-24T14:57:56.425Z</updated>
     
     <content type="html"><![CDATA[<p>现有如下标签和文章对象表<code>fy_content_tag</code> 如下:</p>
 <pre><code>CREATE TABLE `fy_content_tag` (
@@ -203,7 +203,7 @@ $sphinx-&gt;setFilter(&apos;tagid&apos;, array(4));
     <link href="http://jamesban.github.io/2015/03/11/php%E7%9A%84%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0/"/>
     <id>http://jamesban.github.io/2015/03/11/php的匿名函数/</id>
     <published>2015-03-11T14:13:25.000Z</published>
-    <updated>2017-08-24T13:47:13.551Z</updated>
+    <updated>2017-08-24T14:57:56.426Z</updated>
     
     <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">匿名函数</div><div class="line"> </div><div class="line">匿名函数（Anonymous functions），也叫闭包函数（closures），</div><div class="line">允许 临时创建一个没有指定名称的函数。最经常用作回调函数（callback）参数的值。</div><div class="line">当然，也有其它应用的情况。</div></pre></td></tr></table></figure>
 <p>闭包的写法</p>
@@ -399,7 +399,7 @@ class Obj
     <link href="http://jamesban.github.io/2015/03/09/google%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/"/>
     <id>http://jamesban.github.io/2015/03/09/google反向代理/</id>
     <published>2015-03-09T13:36:27.000Z</published>
-    <updated>2017-08-24T13:47:13.526Z</updated>
+    <updated>2017-08-24T14:57:56.423Z</updated>
     
     <content type="html"><![CDATA[<p><a href="http://www.gugesou.com/" target="_blank" rel="external">http://www.gugesou.com/</a><br><a href="http://www.googke.me/" target="_blank" rel="external">http://www.googke.me/</a><br><a href="http://s.amysql.com/" target="_blank" rel="external">http://s.amysql.com/</a><br><a href="http://onccc.net/" target="_blank" rel="external">http://onccc.net/</a><br><a href="http://www.googleisok.com/" target="_blank" rel="external">http://www.googleisok.com/</a><br><a href="https://yue.pao.im/" target="_blank" rel="external">https://yue.pao.im/</a><br><a href="https://da.pao.im/" target="_blank" rel="external">https://da.pao.im/</a><br><a href="https://ibd.pt/" target="_blank" rel="external">https://ibd.pt/</a><br><a href="https://soso.red/" target="_blank" rel="external">https://soso.red/</a><br><a href="https://google.sqzr.cc/" target="_blank" rel="external">https://google.sqzr.cc/</a><br><a href="https://www.out1000.com/" target="_blank" rel="external">https://www.out1000.com/</a><br><a href="http://web.btbook.net/" target="_blank" rel="external">http://web.btbook.net/</a><br><a href="https://www.lamjoeone.info/" target="_blank" rel="external">https://www.lamjoeone.info/</a><br><a href="https://jiong.lu/" target="_blank" rel="external">https://jiong.lu/</a><br><a href="http://www.googleforchina.com/" target="_blank" rel="external">http://www.googleforchina.com/</a><br><a href="https://g.net.co/" target="_blank" rel="external">https://g.net.co/</a><br><a href="https://repigu.com/" target="_blank" rel="external">https://repigu.com/</a><br><a href="https://awk.so/" target="_blank" rel="external">https://awk.so/</a><br><a href="http://gl.randomk.org/" target="_blank" rel="external">http://gl.randomk.org/</a><br><a href="https://g4w.me/" target="_blank" rel="external">https://g4w.me/</a><br><a href="https://safesearch.avira.com" target="_blank" rel="external">https://safesearch.avira.com</a><br><a href="https://sec.hikyle.me/" target="_blank" rel="external">https://sec.hikyle.me/</a><br><a href="http://suche.web.de/" target="_blank" rel="external">http://suche.web.de/</a><br><a href="http://webwebweb.com/" target="_blank" rel="external">http://webwebweb.com/</a><br><a href="http://guge.io/" target="_blank" rel="external">http://guge.io/</a><br><a href="https://g.keyiso.com/" target="_blank" rel="external">https://g.keyiso.com/</a><br><a href="https://goojie.me/" target="_blank" rel="external">https://goojie.me/</a><br><a href="http://e127f.azurewebsites.net/" target="_blank" rel="external">http://e127f.azurewebsites.net/</a><br><a href="http://0s.o53xo.m5xw6z3mmuxgizi.erenta.ru/" target="_blank" rel="external">http://0s.o53xo.m5xw6z3mmuxgizi.erenta.ru/</a><br><a href="http://www.souji8.com/" target="_blank" rel="external">http://www.souji8.com/</a><br><a href="http://865ba.azurewebsites.net/" target="_blank" rel="external">http://865ba.azurewebsites.net/</a><br><a href="https://gusouk.com/" target="_blank" rel="external">https://gusouk.com/</a><br><a href="https://d3vv89cvqbrqlq.cloudfront.net/" target="_blank" rel="external">https://d3vv89cvqbrqlq.cloudfront.net/</a><br><a href="http://out1000.com/" target="_blank" rel="external">http://out1000.com/</a><br><a href="https://gg.jude.me/" target="_blank" rel="external">https://gg.jude.me/</a><br><a href="http://google.chn.im/" target="_blank" rel="external">http://google.chn.im/</a><br><a href="http://www.sousuodao.com" target="_blank" rel="external">http://www.sousuodao.com</a> 搜索岛<br><a href="http://www.googleout.com/" target="_blank" rel="external">http://www.googleout.com/</a><br><a href="https://g.ratafee.nl/" target="_blank" rel="external">https://g.ratafee.nl/</a><br><a href="http://www.1220.cc/" target="_blank" rel="external">http://www.1220.cc/</a><br><a href="http://music.google.cn/webhp" target="_blank" rel="external">http://music.google.cn/webhp</a><br><a href="https://www.glgoo.com" target="_blank" rel="external">https://www.glgoo.com</a> GLGOO<br><a href="https://gg.eeload.com/" target="_blank" rel="external">https://gg.eeload.com/</a> GG.EELOAD.COM<br><a href="http://gusou.in/" target="_blank" rel="external">http://gusou.in/</a> GUSO.IN<br><a href="http://www.wow.com/" target="_blank" rel="external">http://www.wow.com/</a> WOW<br><a href="https://xie.lu/" target="_blank" rel="external">https://xie.lu/</a> 斜路<br><a href="https://www.ggncr.com" target="_blank" rel="external">https://www.ggncr.com</a> GGNCR.COM<br><a href="http://www.gfsoso.com" target="_blank" rel="external">http://www.gfsoso.com</a> 谷粉搜搜<br><a href="http://www.886404.com/" target="_blank" rel="external">http://www.886404.com/</a> 886 404 Google<br><a href="https://g.ttlsa.com/" target="_blank" rel="external">https://g.ttlsa.com/</a><br><a href="http://home.tb.ask.com/" target="_blank" rel="external">http://home.tb.ask.com/</a> ASK Google<br><a href="http://verygoogle.com/" target="_blank" rel="external">http://verygoogle.com/</a><br><a href="http://g.openibm.com/" target="_blank" rel="external">http://g.openibm.com/</a> OpenIBM Google<br><a href="http://z7.cc" target="_blank" rel="external">http://z7.cc</a><br><a href="http://www.Google.com.im" target="_blank" rel="external">http://www.Google.com.im</a> 谷歌复原<br><a href="http://goog.sinaapp.com" target="_blank" rel="external">http://goog.sinaapp.com</a><br><a href="https://sinaapp.co/" target="_blank" rel="external">https://sinaapp.co/</a> Google镜像<br><a href="https://wen.lu/" target="_blank" rel="external">https://wen.lu/</a> Google问路<br><a href="http://www.sssis.com" target="_blank" rel="external">http://www.sssis.com</a> 备案域名反代理到Google IP<br><a href="http://www.gvgle.com" target="_blank" rel="external">http://www.gvgle.com</a> 代理到Google IP<br><a href="http://gu1234.com" target="_blank" rel="external">http://gu1234.com</a> 代理到Google IP<br><a href="http://www.xiexingwen.com" target="_blank" rel="external">http://www.xiexingwen.com</a> Google镜像，动态检测可用Google服务器IP，实时更新<br><a href="https://s3.amazonaws.com/google./index.html" target="_blank" rel="external">https://s3.amazonaws.com/google./index.html</a> Google免翻墙镜像，如果镜像被封锁，访问 <a href="https://github.com/greatfire/wiki" target="_blank" rel="external">https://github.com/greatfire/wiki</a> 获得最新网址。<br><a href="http://www.GoogleStable.com" target="_blank" rel="external">http://www.GoogleStable.com</a> www.GoogleStable.com<br><a href="http://www.tmd123.com" target="_blank" rel="external">http://www.tmd123.com</a> 通天塔</p>
 <p>来源:<a href="https://tumutanzi.com/archives/12663" target="_blank" rel="external">国内顺利使用Google的另类技巧</a></p>
@@ -421,7 +421,7 @@ class Obj
     <link href="http://jamesban.github.io/2015/03/06/swoole/"/>
     <id>http://jamesban.github.io/2015/03/06/swoole/</id>
     <published>2015-03-06T11:20:01.000Z</published>
-    <updated>2017-08-24T13:47:13.553Z</updated>
+    <updated>2017-08-24T14:57:56.427Z</updated>
     
     <content type="html"><![CDATA[<ul>
 <li><p>PHP 异步并行编程_韩天峰 <a href="http://wenku.it168.com/d_001518990.shtml" target="_blank" rel="external">http://wenku.it168.com/d_001518990.shtml</a></p>
@@ -452,7 +452,7 @@ class Obj
     <link href="http://jamesban.github.io/2015/02/14/yii-tips/"/>
     <id>http://jamesban.github.io/2015/02/14/yii-tips/</id>
     <published>2015-02-14T11:22:53.000Z</published>
-    <updated>2017-08-24T13:47:13.554Z</updated>
+    <updated>2017-08-24T14:57:56.428Z</updated>
     
     <content type="html"><![CDATA[<ul>
 <li><p>默认控制器</p>
@@ -603,7 +603,7 @@ Yii::setPathOfAlias(&apos;ext&apos;,$this-&gt;getBasePath().DIRECTORY_SEPARATOR.
     <link href="http://jamesban.github.io/2015/02/09/memcached%E6%89%B9%E9%87%8F%E5%88%A0%E9%99%A4/"/>
     <id>http://jamesban.github.io/2015/02/09/memcached批量删除/</id>
     <published>2015-02-09T11:49:30.000Z</published>
-    <updated>2017-08-24T13:47:13.546Z</updated>
+    <updated>2017-08-24T14:57:56.423Z</updated>
     
     <content type="html"><![CDATA[<p>都说Cache是万金油，哪里不舒服抹哪里。不过要想批量删除缓存可没那么简单，<br>memcached 不支持批量删除缓存键。</p>
 <h2 id="遍历方式"><a href="#遍历方式" class="headerlink" title="遍历方式"></a>遍历方式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&lt;?php</div><div class="line">/**</div><div class="line"> * Function to get all memcache keys</div><div class="line"> * @author Manish Patel</div><div class="line"> * @Created:  28-May-2010</div><div class="line"> * @modified: 16-Jun-2011 </div><div class="line"> */</div><div class="line">function getMemcacheKeys() &#123;</div><div class="line"></div><div class="line">    $memcache = new Memcache;</div><div class="line">    $memcache-&gt;connect(&apos;127.0.0.1&apos;, 11211) or die (&quot;Could not connect to memcache server&quot;);</div><div class="line"></div><div class="line">    $list = array();</div><div class="line">    $allSlabs = $memcache-&gt;getExtendedStats(&apos;slabs&apos;);</div><div class="line">    $items = $memcache-&gt;getExtendedStats(&apos;items&apos;);</div><div class="line">    foreach($allSlabs as $server =&gt; $slabs) &#123;</div><div class="line">        foreach($slabs AS $slabId =&gt; $slabMeta) &#123;</div><div class="line">           $cdump = $memcache-&gt;getExtendedStats(&apos;cachedump&apos;,(int)$slabId);</div><div class="line">            foreach($cdump AS $keys =&gt; $arrVal) &#123;</div><div class="line">                if (!is_array($arrVal)) continue;</div><div class="line">                foreach($arrVal AS $k =&gt; $v) &#123;                   </div><div class="line">                    echo $k .&apos;&lt;br&gt;&apos;;</div><div class="line">                &#125;</div><div class="line">           &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;   </div><div class="line">&#125;//EO getMemcacheKeys()</div><div class="line">?&gt;</div></pre></td></tr></table></figure>
@@ -639,7 +639,7 @@ Yii::setPathOfAlias(&apos;ext&apos;,$this-&gt;getBasePath().DIRECTORY_SEPARATOR.
     <link href="http://jamesban.github.io/2015/01/10/nginx%E6%B7%BB%E5%8A%A0mod_zip%E5%AE%9E%E7%8E%B0%E8%BF%9C%E7%A8%8B%E6%96%87%E4%BB%B6%E6%89%93%E5%8C%85%E4%B8%8B%E8%BD%BD/"/>
     <id>http://jamesban.github.io/2015/01/10/nginx添加mod_zip实现远程文件打包下载/</id>
     <published>2015-01-10T09:00:34.000Z</published>
-    <updated>2017-08-24T13:47:13.550Z</updated>
+    <updated>2017-08-24T14:57:56.425Z</updated>
     
     <content type="html"><![CDATA[<ul>
 <li><p>传统实现方法<br>  下载远程文件到本地服务器—&gt;压缩–&gt;下载–&gt;删除。<br>  这样实现 消耗内存、cpu、大量磁盘空间、速度太慢(取决于网络).</p>
@@ -709,7 +709,7 @@ Yii::setPathOfAlias(&apos;ext&apos;,$this-&gt;getBasePath().DIRECTORY_SEPARATOR.
     <link href="http://jamesban.github.io/2014/12/24/setfacl%E5%91%BD%E4%BB%A4/"/>
     <id>http://jamesban.github.io/2014/12/24/setfacl命令/</id>
     <published>2014-12-24T15:17:41.000Z</published>
-    <updated>2017-08-24T13:47:13.553Z</updated>
+    <updated>2017-08-24T14:57:56.427Z</updated>
     
     <content type="html"><![CDATA[<p>setfacl命令是用来在命令行里设置ACL（访问控制列表）。在命令行里，一系列的命令跟随以一系列的文件名。</p>
 <h2 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">-b,--remove-all：删除所有扩展的acl规则，基本的acl规则(所有者，群组，其他）将被保留。</div><div class="line">-k,--remove-default：删除缺省的acl规则。如果没有缺省规则，将不提示。</div><div class="line">-n，--no-mask：不要重新计算有效权限。setfacl默认会重新计算ACL mask，除非mask被明确的制定。</div><div class="line">--mask：重新计算有效权限，即使ACL mask被明确指定。</div><div class="line">-d，--default：设定默认的acl规则。</div><div class="line">--restore=file：从文件恢复备份的acl规则（这些文件可由getfacl -R产生）。通过这种机制可以恢复整个目录树的acl规则。此参数不能和除--test以外的任何参数一同执行。</div><div class="line">--test：测试模式，不会改变任何文件的acl规则，操作后的acl规格将被列出。</div><div class="line">-R，--recursive：递归的对所有文件及目录进行操作。</div><div class="line">-L，--logical：跟踪符号链接，默认情况下只跟踪符号链接文件，跳过符号链接目录。</div><div class="line">-P，--physical：跳过所有符号链接，包括符号链接文件。</div><div class="line">--version：输出setfacl的版本号并退出。</div><div class="line">--help：输出帮助信息。</div><div class="line">--：标识命令行参数结束，其后的所有参数都将被认为是文件名</div><div class="line">-：如果文件名是-，则setfacl将从标准输入读取文件名。</div></pre></td></tr></table></figure>
@@ -792,7 +792,7 @@ Yii::setPathOfAlias(&apos;ext&apos;,$this-&gt;getBasePath().DIRECTORY_SEPARATOR.
     <link href="http://jamesban.github.io/2014/12/24/(%E8%BD%AC)CentOS%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7%E5%A2%9E%E5%8A%A0sudo%E6%9D%83%E9%99%90%E7%9A%84%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE/"/>
     <id>http://jamesban.github.io/2014/12/24/(转)CentOS普通用户增加sudo权限的简单配置/</id>
     <published>2014-12-24T15:13:27.000Z</published>
-    <updated>2017-08-24T13:47:13.524Z</updated>
+    <updated>2017-08-24T14:57:56.421Z</updated>
     
     <content type="html"><![CDATA[<p>查看sudo是否安装:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span>rpm -qa|grep sudo</div></pre></td></tr></table></figure></p>
 <p>修改/etc/sudoers文件，修改命令必须为visudo才行<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span>visudo -f /etc/sudoers</div></pre></td></tr></table></figure></p>
@@ -819,7 +819,7 @@ Yii::setPathOfAlias(&apos;ext&apos;,$this-&gt;getBasePath().DIRECTORY_SEPARATOR.
     <link href="http://jamesban.github.io/2014/12/17/mongodb%E8%81%9A%E5%90%88%E6%9F%A5%E8%AF%A2/"/>
     <id>http://jamesban.github.io/2014/12/17/mongodb聚合查询/</id>
     <published>2014-12-17T11:21:11.000Z</published>
-    <updated>2017-08-24T13:47:13.548Z</updated>
+    <updated>2017-08-24T14:57:56.424Z</updated>
     
     <content type="html"><![CDATA[<h2 id="map-reduce"><a href="#map-reduce" class="headerlink" title="map-reduce"></a>map-reduce</h2><h2 id="aggregate"><a href="#aggregate" class="headerlink" title="aggregate"></a>aggregate</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">todo</div></pre></td></tr></table></figure>
 <p>参考</p>
@@ -845,7 +845,7 @@ Yii::setPathOfAlias(&apos;ext&apos;,$this-&gt;getBasePath().DIRECTORY_SEPARATOR.
     <link href="http://jamesban.github.io/2014/12/17/mongodb%E6%95%B0%E7%BB%84%E6%9F%A5%E8%AF%A2/"/>
     <id>http://jamesban.github.io/2014/12/17/mongodb数组查询/</id>
     <published>2014-12-17T11:06:15.000Z</published>
-    <updated>2017-08-24T13:47:13.547Z</updated>
+    <updated>2017-08-24T14:57:56.424Z</updated>
     
     <content type="html"><![CDATA[<ul>
 <li>插入测试数据</li>
@@ -894,7 +894,7 @@ Yii::setPathOfAlias(&apos;ext&apos;,$this-&gt;getBasePath().DIRECTORY_SEPARATOR.
     <link href="http://jamesban.github.io/2014/12/12/nginx%E4%BA%8C%E7%BA%A7%E5%9F%9F%E5%90%8D%E5%8C%B9%E9%85%8D%E6%A0%B9%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84%E5%AD%90%E6%96%87%E4%BB%B6%E5%A4%B9/"/>
     <id>http://jamesban.github.io/2014/12/12/nginx二级域名匹配根目录下的子文件夹/</id>
     <published>2014-12-12T13:26:33.000Z</published>
-    <updated>2017-08-24T13:47:13.549Z</updated>
+    <updated>2017-08-24T14:57:56.425Z</updated>
     
     <content type="html"><![CDATA[<p>使用泛域名映射子目录</p>
 <p>配置文件如下</p>
@@ -922,7 +922,7 @@ Yii::setPathOfAlias(&apos;ext&apos;,$this-&gt;getBasePath().DIRECTORY_SEPARATOR.
     <link href="http://jamesban.github.io/2014/12/12/pack%E5%87%BD%E6%95%B0%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"/>
     <id>http://jamesban.github.io/2014/12/12/pack函数的简单使用/</id>
     <published>2014-12-12T13:24:42.000Z</published>
-    <updated>2017-08-24T13:47:13.551Z</updated>
+    <updated>2017-08-24T14:57:56.426Z</updated>
     
     <content type="html"><![CDATA[<p>pack函数主要作用是把数据压缩为二进制字符串。qq纯净ip数据库数据存储就是使用pack进行封装。本文为pack的简单应用</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Db</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> $file = <span class="keyword">null</span>;</div><div class="line">	</div><div class="line">	<span class="keyword">private</span> $struct = <span class="keyword">array</span>(</div><div class="line">		<span class="string">'name'</span> =&gt; <span class="string">'a8'</span>,</div><div class="line">		<span class="string">'age'</span> =&gt; <span class="string">'S'</span>,</div><div class="line">		<span class="string">'email'</span> =&gt; <span class="string">'a30'</span></div><div class="line">	);</div><div class="line">	</div><div class="line">	<span class="keyword">private</span> $length = <span class="number">40</span>;</div><div class="line">	</div><div class="line">	<span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">init</span><span class="params">()</span></span></div><div class="line"><span class="function">	</span>&#123;</div><div class="line">		$file = fopen(<span class="string">'./test.db'</span>, <span class="string">'ab+'</span>);</div><div class="line">		<span class="keyword">$this</span>-&gt;file = $file;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span></span></div><div class="line"><span class="function">	</span>&#123;</div><div class="line">		<span class="keyword">if</span>(<span class="keyword">$this</span>-&gt;file === <span class="keyword">null</span>) &#123;</div><div class="line">			<span class="keyword">$this</span>-&gt;init();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">add</span><span class="params">($data)</span> </span></div><div class="line"><span class="function">	</span>&#123;</div><div class="line">		$binary = <span class="string">''</span>;</div><div class="line">		<span class="keyword">foreach</span>($data <span class="keyword">as</span> $k =&gt; $row) &#123;</div><div class="line">			$struct = <span class="keyword">$this</span>-&gt;struct[$k];</div><div class="line">			$binary .= pack($struct, $row);</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		fwrite(<span class="keyword">$this</span>-&gt;file, $binary);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	</div><div class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">read</span><span class="params">($id = <span class="number">1</span>)</span> </span></div><div class="line"><span class="function">	</span>&#123;</div><div class="line">		rewind(<span class="keyword">$this</span>-&gt;file);</div><div class="line">		$data = <span class="keyword">array</span>();</div><div class="line">		</div><div class="line">		<span class="keyword">if</span>(!fseek(<span class="keyword">$this</span>-&gt;file, <span class="keyword">$this</span>-&gt;length * ($id <span class="number">-1</span>))) &#123;</div><div class="line">			$data[<span class="string">'name'</span>] = unpack(<span class="string">'a8'</span>, fread(<span class="keyword">$this</span>-&gt;file, <span class="number">8</span>))[<span class="number">1</span>];</div><div class="line">			$data[<span class="string">'age'</span>] = unpack(<span class="string">'S'</span>, fread(<span class="keyword">$this</span>-&gt;file, <span class="number">2</span>))[<span class="number">1</span>];</div><div class="line">			$data[<span class="string">'email'</span>] = unpack(<span class="string">'a30'</span>, fread(<span class="keyword">$this</span>-&gt;file, <span class="number">30</span>))[<span class="number">1</span>];</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		<span class="keyword">return</span> $data;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span><span class="params">()</span></span></div><div class="line"><span class="function">	</span>&#123;</div><div class="line">		fclose(<span class="keyword">$this</span>-&gt;file);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -949,7 +949,7 @@ Yii::setPathOfAlias(&apos;ext&apos;,$this-&gt;getBasePath().DIRECTORY_SEPARATOR.
     <link href="http://jamesban.github.io/2014/12/09/%E4%B8%8D%E4%BD%BF%E7%94%A8strrev%E5%92%8C%E6%95%B0%E7%BB%84%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%8D%E8%BD%AC/"/>
     <id>http://jamesban.github.io/2014/12/09/不使用strrev和数组函数实现字符串反转/</id>
     <published>2014-12-09T11:04:19.000Z</published>
-    <updated>2017-08-24T13:47:13.555Z</updated>
+    <updated>2017-08-24T14:57:56.428Z</updated>
     
     <content type="html"><![CDATA[<p>反转一个字符串很容易使用<a href="http://php.net/manual/en/function.strrev.php" target="_blank" rel="external">strrev</a>函数即可,假如没有strrev函数也没有数组函数怎么显示字符串反转。</p>
 <ul>
@@ -979,7 +979,7 @@ Yii::setPathOfAlias(&apos;ext&apos;,$this-&gt;getBasePath().DIRECTORY_SEPARATOR.
     <link href="http://jamesban.github.io/2014/12/07/%E5%91%A8%E6%9C%AB%E5%91%A8%E8%BE%B9%E9%AA%91%E8%A1%8C-%E7%94%98%E5%B2%AD%E6%B0%B4%E5%BA%93/"/>
     <id>http://jamesban.github.io/2014/12/07/周末周边骑行-甘岭水库/</id>
     <published>2014-12-07T09:47:18.000Z</published>
-    <updated>2017-08-24T13:47:13.556Z</updated>
+    <updated>2017-08-24T14:57:56.429Z</updated>
     
     <content type="html"><![CDATA[<ul>
 <li>某房地产</li>
@@ -1027,7 +1027,7 @@ Yii::setPathOfAlias(&apos;ext&apos;,$this-&gt;getBasePath().DIRECTORY_SEPARATOR.
     <link href="http://jamesban.github.io/2014/12/05/php%E8%8E%B7%E5%8F%96%E8%A7%86%E9%A2%91%E6%96%87%E4%BB%B6%E7%BC%96%E7%A0%81%E4%BF%A1%E6%81%AF/"/>
     <id>http://jamesban.github.io/2014/12/05/php获取视频文件编码信息/</id>
     <published>2014-12-05T13:57:58.000Z</published>
-    <updated>2017-08-24T13:47:13.552Z</updated>
+    <updated>2017-08-24T14:57:56.426Z</updated>
     
     <content type="html"><![CDATA[<h2 id="使用ffmpeg"><a href="#使用ffmpeg" class="headerlink" title="使用ffmpeg"></a>使用ffmpeg</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">FFmpeg是一个自由软件，可以运行音频和视频多种格式的录影、转换、流功能[1]，</div><div class="line">包含了libavcodec ─这是一个用于多个项目中音频和视频的解码器库，以及libavformat——一个音频与视频格式转换库。</div></pre></td></tr></table></figure>
 <ul>
@@ -1063,7 +1063,7 @@ Yii::setPathOfAlias(&apos;ext&apos;,$this-&gt;getBasePath().DIRECTORY_SEPARATOR.
     <link href="http://jamesban.github.io/2014/12/04/DateTime%E7%B1%BB%E7%9A%84%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95/"/>
     <id>http://jamesban.github.io/2014/12/04/DateTime类的常见用法/</id>
     <published>2014-12-04T11:36:11.000Z</published>
-    <updated>2017-08-24T13:47:13.525Z</updated>
+    <updated>2017-08-24T14:57:56.422Z</updated>
     
     <content type="html"><![CDATA[<ul>
 <li>初始化</li>
